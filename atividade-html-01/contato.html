@@ -5,47 +5,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="icon.ico">
     <title>Contato</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
-    <header>
-        <img src="cogumelo.jpg" alt="imagem do cogumelo" width="50" height="50"><span>Melhores alunos do VemSer de todos os tempos</span>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./contato.html">Contato</a></li>
+<body id="contato">
+    <header class="cabecalho">
+        <img alt="Imagem do cogumelo" class="logo" src="./cogumelo.png" />
+        <nav class="menu">
+            <ul class="menu__lista">
+                <li class="menu__item"><a class="menu__link" href="./index.html">Home</a></li>
+                <li class="menu__item"><a class="menu__link" href="./sobre.html">Sobre</a></li>
+                <li class="menu__item"><a class="menu__link" href="./contato.html">Contato</a></li>
             </ul>
         </nav>
     </header>
-    <form>
-        <label for="username">Digite seu nome completo</label>
-        <input type="text" id="username" placeholder="Digite seu nome completo">
-        <br><br>
-        <label for="email">Digite seu e-mail</label>
-        <input type="email" name="email" id="email" placeholder="digite seu e-mail">
-        <br><br>
-        <label for="perguntas">Qual o motivo do contato</label>
-        <select name="perguntas" id="perguntas">
-            <option value="pergunta01">HTML é easy demais</option>
-        </select>
-        <br>
-        <br>
-        <label for="bio">Sua mensagem</label><br>
-        <textarea name="mensagem" id="mensagem" cols="30" rows="10"></textarea>
-        <br><br>
-        <input type="submit" value="salvar">
-    </form>
-    <footer>
-        <nav>
-            <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./sobre.html">Sobre</a></li>
-                <li><a href="./contato.html">Contato</a></li>
+    </div>
+    <section class="conteudo__formulario container">
+        <form class="formulario">
+            <div class="formulario__inputs">
+                <label for="username">Digite seu nome completo</label>
+                <input type="text" id="username" placeholder="Digite seu nome completo">
+            </div>
+            <div class="formulario__inputs">
+                <label for="email">Digite seu e-mail</label>
+                <input type="email" name="email" id="email" placeholder="digite seu e-mail">
+            </div>
+            <div class="formulario__inputs">
+                <label for="perguntas">Qual o motivo do contato</label>
+                <select name="perguntas" id="perguntas">
+                    <option value="pergunta01">HTML é easy demais</option>
+                </select>
+            </div>
+            <div class="formulario__inputs">
+                <label for="bio">Sua mensagem</label>
+                <textarea name="mensagem" id="mensagem" cols="30" rows="10" placeholder="Digite sua mensagem"></textarea>
+            </div>
+            <div class="formulario__inputs botao">
+                <input class="botao" type="submit" value="salvar">
+            </div>
+        </form>
+        <img class="formulario__imagem" src="./marioo.png" alt="">
+    </section>
+
+    <footer class="rodape">
+        <address>AV. Andarai 531 - Porto Alegre</address>
+        <nav class="menu">
+            <ul class="menu__lista">
+                <li class="menu__item"><a class="menu__link" href="./index.html">Home</a></li>
+                <li class="menu__item"><a class="menu__link" href="./sobre.html">Sobre</a></li>
+                <li class="menu__item"><a class="menu__link" href="./contato.html">Contato</a></li>
             </ul>
         </nav>
-        <address>AV. Andarai 531 - Porto Alegre</address>
     </footer>
 
 

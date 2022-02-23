@@ -1,0 +1,16 @@
+body,
+html {
+  font-family: "Courier New", Courier, monospace;
+}
+.teste {
+  width: 300px;
+  height: 300px;
+  background-color: aquamarine;
+  /* 
+  cima - direita, baixo, esquerda | sentido do relogio 
+  margin: 40px 90px 80px 30px;
+  */
+  /* 90 em cima e baixo, 40 esquerda e direita */
+  margin: 90px 40px;
+  padding: 90px;
+}

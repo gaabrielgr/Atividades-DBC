@@ -1,0 +1,145 @@
+.background__container {
+  background-color: #f1f1f1;
+}
+.cabecalho {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 80px;
+  background-color: #ccc;
+}
+.logo {
+  width: 120px;
+  height: 120px;
+}
+.menu__lista {
+  display: flex;
+}
+.menu__link {
+  font-size: 28px;
+  margin-right: 20px;
+}
+.menu__link:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.titulo-principal {
+  text-align: center;
+  font-size: 40px;
+  padding: 60px 0px;
+}
+.lista-cogumelos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.cogumelos__card {
+  background-color: #fff;
+  box-sizing: border-box;
+  padding: 60px;
+  margin-bottom: 120px;
+  width: calc(50% - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 4px solid #ccc;
+  border-radius: 8px;
+  gap: 20px;
+}
+.cogumelos__card:hover {
+  border: 4px solid rgba(0, 0, 0, 0.6);
+}
+.cogumelos__card:nth-child(2),
+.cogumelos__card:nth-child(4) {
+  margin-right: 0;
+}
+.cogumelos__card:nth-child(3),
+.cogumelos__card:nth-child(4) {
+  margin-bottom: 0;
+}
+.titulo__card {
+  font-size: 24px;
+}
+
+.conteudo-principal__texto {
+  margin-top: 60px;
+  font-size: 32px;
+  text-align: justify;
+}
+
+.mapa {
+  display: flex;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  justify-content: center;
+  align-items: center;
+}
+
+.iframe-externo {
+  text-align: center;
+  width: 90%;
+  margin-bottom: 60px;
+}
+
+.rodape {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+  background-color: #ccc;
+}
+
+.rodape address {
+  font-size: 18px;
+}
+
+/* sobre */
+
+#sobre .iframe-externo {
+  width: 100%;
+  margin-bottom: 0px;
+}
+
+.sobre-texto {
+  margin-bottom: 60px;
+}
+
+/* formulario */
+#contato {
+  background-color: #f1f1f1;
+}
+.conteudo__formulario {
+  padding: 80px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.formulario__imagem {
+  width: 50%;
+  height: 10%;
+}
+.formulario {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 80px;
+  gap: 20px;
+}
+select,
+input,
+textarea {
+  border: 2px solid black;
+}
+.formulario__inputs {
+  color: #000;
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+}
