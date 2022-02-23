@@ -25,7 +25,9 @@ textarea {
   padding: 4px;
   border: 2px solid rgb(249, 136, 0, 0.4);
   border-radius: 4px;
+  outline: none;
 }
+
 .formulario__inputs {
   color: #000;
   font-size: 24px;
