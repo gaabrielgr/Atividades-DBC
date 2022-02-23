@@ -41,3 +41,7 @@ textarea {
   cursor: pointer;
   border-radius: 4px;
 }
+.botao:hover {
+  background-color: #f98800;
+  color: #fff;
+}
