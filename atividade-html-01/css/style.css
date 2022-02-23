@@ -1,13 +1,12 @@
-.background__container {
-  background-color: #f1f1f1;
-}
+/* CABECALHO */
 .cabecalho {
   height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 80px;
-  background-color: #ccc;
+  background-color: #e9e9e9;
+  border-bottom: 2px solid #f98800;
 }
 .logo {
   width: 120px;
@@ -21,7 +20,13 @@
   margin-right: 20px;
 }
 .menu__link:hover {
+  color: #f98800;
   text-decoration: underline;
+}
+
+/* CONTEUDO DO SITE */
+.background__container {
+  background-color: #f1f1f1;
 }
 
 .container {
@@ -33,13 +38,17 @@
   font-size: 40px;
   padding: 60px 0px;
 }
+.titulo-principal span {
+  color: #f98800;
+}
 .lista-cogumelos {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
 .cogumelos__card {
-  background-color: #fff;
+  background: #fff url("../tijolo.png") repeat;
+  background-size: 80px;
   box-sizing: border-box;
   padding: 60px;
   margin-bottom: 120px;
@@ -47,12 +56,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 4px solid #ccc;
+  border: 3px solid rgb(218, 120, 0.1);
   border-radius: 8px;
   gap: 20px;
 }
 .cogumelos__card:hover {
-  border: 4px solid rgba(0, 0, 0, 0.6);
+  border: 3px solid #f98800;
 }
 .cogumelos__card:nth-child(2),
 .cogumelos__card:nth-child(4) {
@@ -63,7 +72,9 @@
   margin-bottom: 0;
 }
 .titulo__card {
-  font-size: 24px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 44px;
 }
 
 .conteudo-principal__texto {
@@ -86,60 +97,17 @@
   margin-bottom: 60px;
 }
 
+/* rodape */
 .rodape {
   height: 120px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 80px;
-  background-color: #ccc;
+  background-color: #e9e9e9;
+  border-top: 2px solid #f98800;
 }
 
 .rodape address {
   font-size: 18px;
-}
-
-/* sobre */
-
-#sobre .iframe-externo {
-  width: 100%;
-  margin-bottom: 0px;
-}
-
-.sobre-texto {
-  margin-bottom: 60px;
-}
-
-/* formulario */
-#contato {
-  background-color: #f1f1f1;
-}
-.conteudo__formulario {
-  padding: 80px;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.formulario__imagem {
-  width: 50%;
-  height: 10%;
-}
-.formulario {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  padding: 80px;
-  gap: 20px;
-}
-select,
-input,
-textarea {
-  border: 2px solid black;
-}
-.formulario__inputs {
-  color: #000;
-  font-size: 24px;
-  display: flex;
-  flex-direction: column;
 }
