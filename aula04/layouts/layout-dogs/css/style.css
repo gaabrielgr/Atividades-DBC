@@ -1,0 +1,61 @@
+/* GLOBAL */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+
+/* CABECALHO */
+
+.cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 18px;
+  height: 70px;
+  color: #fff;
+  background-color: #000;
+}
+
+.menu__lista {
+  display: flex;
+}
+
+.menu__item {
+  margin-left: 30px;
+}
+
+.menu__link {
+  color: #fff;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.galeria > div {
+  margin: 10px;
+  flex: 1 1 300px;
+}
+.galeria__imagens img {
+  max-width: 100%;
+}
+.galeria__imagens {
+  text-align: center;
+}
