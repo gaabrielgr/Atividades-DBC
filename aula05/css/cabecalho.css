@@ -1,0 +1,57 @@
+.cabecalho {
+  height: 60px;
+  padding: 10px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.menu {
+  display: flex;
+  align-items: center;
+}
+.logo {
+  margin-right: 70px;
+}
+.container-menu {
+  display: flex;
+}
+.menu-lista {
+  display: flex;
+}
+.menu-item {
+  margin-right: 40px;
+}
+.menu-link {
+  color: #18a0fb;
+  font-weight: bold;
+}
+.fazer-login {
+  display: flex;
+}
+.login a {
+  border: 1px solid #18a0fb;
+  color: #18a0fb;
+  font-weight: bold;
+  border-radius: 8px;
+  padding: 10px 40px;
+  max-width: 130px;
+  margin-right: 10px;
+}
+.login a:hover {
+  background-color: #18a0fb;
+  color: #fff;
+}
+.registrar a {
+  background-color: #18a0fb;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #18a0fb;
+  border-radius: 8px;
+  padding: 10px 30px;
+}
+.registrar a:hover {
+  background-color: #fff;
+  border: 1px solid #18a0fb;
+  color: #18a0fb;
+}

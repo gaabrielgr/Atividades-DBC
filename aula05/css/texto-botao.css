@@ -1,0 +1,22 @@
+.texto-botao {
+  padding: 120px 0px;
+  background-color: rgb(241, 241, 241, 0.6);
+  max-height: 300px;
+  border-bottom: 1px solid black;
+  margin-bottom: 120px;
+}
+
+.texto-botao-paragrafo p {
+  font-size: 36px;
+  max-width: 900px;
+}
+.container-texto-botao {
+  padding-left: 80px;
+  display: flex;
+  column-gap: 80px;
+  justify-content: center;
+}
+
+.botoes button {
+  margin-right: 20px;
+}

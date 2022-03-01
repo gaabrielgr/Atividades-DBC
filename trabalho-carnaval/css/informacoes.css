@@ -1,0 +1,20 @@
+.background-informacoes {
+  background-color: var(--cinza-opaco);
+}
+.informacoes {
+  padding: 20px;
+  display: grid;
+  justify-content: center;
+  row-gap: 20px;
+}
+.informacoes p {
+  text-align: justify;
+}
+.informacoes-botoes {
+  display: flex;
+  justify-content: space-evenly;
+}
+.informacoes-botoes button {
+  width: 130px;
+  height: 30px;
+}

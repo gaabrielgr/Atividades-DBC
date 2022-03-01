@@ -1,0 +1,21 @@
+.imagem-texto-container {
+  margin: 20px 0px;
+}
+
+.imagem-texto-container h3 {
+  text-align: center;
+  margin-bottom: 4px;
+}
+.imagem-texto {
+  padding: 20px 40px;
+}
+.imagem-texto-container p {
+  text-align: justify;
+}
+.imagem-texto img {
+  width: 100%;
+}
+
+.background-reverse {
+  background-color: var(--cinza-opaco);
+}

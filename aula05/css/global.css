@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Open Sans", sans-serif;
+}
+*,
+i {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+ul,
+li {
+  text-decoration: none;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+}
+html {
+  overflow-y: overlay;
+  scroll-behavior: smooth;
+}

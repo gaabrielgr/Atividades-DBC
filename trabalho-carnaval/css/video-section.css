@@ -1,0 +1,25 @@
+.video-section {
+  width: 100%;
+}
+.conteudo-video {
+  position: relative;
+  width: 100%;
+}
+.botao-play {
+  top: calc(50% - 15px);
+  left: calc(50% - 15px);
+  position: absolute;
+}
+.botao-play img {
+  width: 30px;
+  height: 30px;
+}
+.titulo-botao {
+  top: calc(70% - 22px);
+  left: calc(50% - 177px);
+  text-align: center;
+  position: absolute;
+}
+.titulo-botao h1 {
+  margin-bottom: 10px;
+}

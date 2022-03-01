@@ -1,0 +1,34 @@
+:root {
+  --azul-padrao: #18a0fb;
+  --branco: #fff;
+  --preto: #000;
+  --preto-opaco: rgb(0, 0, 0, 0.7);
+  --cinza: #ccc;
+  --cinza-opaco: rgb(204, 204, 204, 0.2);
+}
+.container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
+.botao-borda {
+  color: #18a0fb;
+  border: 1px solid var(--azul-padrao);
+  padding: 5px 20px;
+  border-radius: 4px;
+}
+
+.botao-background {
+  color: var(--branco);
+  background-color: var(--azul-padrao);
+  padding: 5px 20px;
+  border-radius: 4px;
+}
+.paragrafo {
+  font-size: 20px;
+  color: var(--preto-opaco);
+}
+.titulo {
+  font-size: 24px;
+  font-weight: bold;
+}

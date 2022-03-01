@@ -1,0 +1,40 @@
+.cabecalho {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 5px 0px;
+}
+.menu {
+  display: none;
+}
+.menu-cabecalho {
+  display: flex;
+  justify-content: space-between;
+}
+.cadastrar {
+  display: flex;
+  column-gap: 10px;
+}
+.menu-hamburguer {
+  color: var(--preto);
+  font-size: 24px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  column-gap: 80px;
+}
+.logo-inteiro {
+  display: none;
+}
+.menu-lista {
+  display: flex;
+  gap: 20px;
+}
+.menu-link {
+  color: var(--azul-padrao);
+  font-weight: bold;
+}
+.cabecalho-responsivo {
+  width: 100%;
+}

@@ -16,7 +16,6 @@ li {
 }
 
 /* CABECALHO */
-
 .cabecalho {
   display: flex;
   align-items: center;
@@ -40,6 +39,7 @@ li {
   color: #fff;
 }
 
+/* CONTEUDO */
 .container {
   margin: 0 auto;
   max-width: 1200px;

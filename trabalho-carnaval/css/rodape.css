@@ -1,0 +1,43 @@
+.rodape {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  font-weight: bold;
+}
+.container-rodape-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.rodape-menu-lista {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+.rodape-menu-item {
+  cursor: pointer;
+}
+.rodape-icones {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icones {
+  display: flex;
+  column-gap: 20px;
+}
+.icones img {
+  width: 30px;
+  height: 30px;
+}
+.copy {
+  margin-top: 10px;
+}
+/* .linha {
+  width: 4px;
+  height: 95%;
+  background-color: var(--cinza);
+} */

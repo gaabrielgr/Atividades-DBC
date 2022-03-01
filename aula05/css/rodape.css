@@ -1,0 +1,41 @@
+.rodape-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  width: 100%;
+  font-weight: bold;
+}
+.container-rodape {
+  display: flex;
+  width: 95%;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  padding-bottom: 40px;
+}
+.rodape-menu-1 {
+  display: flex;
+}
+.rodape-logo {
+  margin: 0px 160px;
+}
+.rodape-menu-lista {
+  display: flex;
+  column-gap: 80px;
+}
+.rodape-icones {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icones {
+  display: flex;
+  column-gap: 21px;
+  margin-bottom: 40px;
+}
+
+.copy {
+  margin-bottom: 20px;
+}

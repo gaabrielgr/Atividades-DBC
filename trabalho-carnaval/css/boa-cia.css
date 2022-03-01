@@ -1,0 +1,25 @@
+.conteudo-boa-cia {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.conteudo-boa-cia h3,
+.conteudo-boa-cia p {
+  text-align: center;
+}
+.galeria-boa-cia img {
+  width: 100%;
+}
+.galeria-boa-cia {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.galeria-imagem-solo {
+  max-width: 170px;
+}
+
+.conteudo-boa-cia .paragrafo {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
