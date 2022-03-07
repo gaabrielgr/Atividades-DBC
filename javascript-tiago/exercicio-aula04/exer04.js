@@ -4,7 +4,7 @@ let operador = prompt(
   "Digite um operador, operações válidas: '+', '-', '*', '/')"
 );
 
-if (!isNaN(num1) && !isNaN(num2)) {
+if (!isNaN(num1) && !isNaN(num2) && num1 / num2 !== Infinity) {
   switch (operador) {
     case "+":
       alert(`O resultado da soma: ${num1 + num2}`);
@@ -22,5 +22,5 @@ if (!isNaN(num1) && !isNaN(num2)) {
       alert("operador inválido");
   }
 } else {
-  alert("Numeros inválidos");
+  alert("Numeros inválidos, lembre-se de não dividir por zero");
 }
