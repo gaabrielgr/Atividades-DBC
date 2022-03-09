@@ -4,18 +4,21 @@
 	Ao selecionar finalizar mostre um alerta para o usuário com o resultado da soma de todos os números informados
 	Utilize o laço DO...WHILE; */
 
-let numeroInserido = 0;
 let somaNumeros = 0;
+let opcaoMenu = 0;
+let numeroInformado = 0;
 
-do {
-  numeroInserido = prompt("Insira um número: ").toLowerCase();
-  if (!isNaN(numeroInserido) && numeroInserido !== "") {
-    numeroInserido = parseInt(numeroInserido);
-    somaNumeros += numeroInserido;
-  }
+do{
+opcaoMenu = parseInt(prompt('Digite 1 para inserir um número ou digite 2 para finalizar'))
+if(opcaoMenu === 1) {
+  numeroInformado = parseInt(prompt('Digite um numero: '));    
+    if (!isNaN(numeroInformado)) {
+      somaNumeros += numeroInformado;
+    } else {
+      alert('Digite numeros valido');
+    }
+} 
 
-  if (typeof numeroInserido === "string" && numeroInserido !== "finalizar") {
-    alert("Valor inválido");
-  }
-} while (numeroInserido !== "finalizar");
-alert(somaNumeros);
+
+}while(opcaoMenu !== 2)
+alert(somaNumeros)
