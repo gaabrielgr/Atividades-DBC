@@ -1,58 +1,32 @@
-/* 
-4a) Tendo uma lista vazia [], crie uma função que recebe um elemento 
-	 qualquer como parâmetro e que adiciona esse elemento à lista;
-   4b) Crie duas funções, uma para remover o último elemento da lista e outra para remover o primeiro elemento da lista;
+/* Crie uma função que gera um número aleátorio entre 0 e 100; */
 
-  
+/* function numeroAleatorio() {
+  return Math.floor(Math.random() * 100);
+}
 
+console.log(numeroAleatorio()); */
+
+/*  Crie uma lista vazia [] e vá adicionando números aleatórios nesta lista até que a lista tenha 10 números inseridos nela;
+OBS: só podem ser adicionados a esta lista os seguintes números:
+- números ímpares que estão entre 14 e 50;
+- números múltiplos de 12;
 */
-/* EXERCICIO 4A,4B */
-/* let listaMercado = [];
-let produto = ["batata", "arroz", "leite"];
 
-function adicionarProdutos(item) {
-  listaMercado.push(item);
-}
-adicionarProdutos(produto);
-
-function apagarUltimo(lista) {
-  listaMercado.forEach((item) => {
-    item.pop();
-  });
-}
-
-function apagarPrimeiro(lista) {
-  listaMercado.forEach((item) => {
-    item.shift();
-  });
-}
-
-apagarUltimo(listaMercado);
-apagarPrimeiro(listaMercado);
-
-console.log(listaMercado); */
-
-/* EXERCICIO 4C */
-
-/* Crie uma função para remover um elemento específico da lista;
-	 // ex: Imagine que temos a lista [ 'a', 4, 'Tiago', 187 ]
-	 // e chamamos a função  removeElemento('Tiago')
-	 // deve remover o elemento 'Tiago' da lista, fazendo com que fique [ 'a', 4, 187 ]
-	 Obs: caso o elemento passado não exista na lista mostrar uma mensagem para o usuário informando. */
-
-let lista = ["a", 4, "Tiago", 187];
-let apagarItem = "Tiago";
-
-function apagarElemento(item) {
-  let index = lista.indexOf(item);
-
-  if (index !== -1) {
-    lista.splice(index, 1);
-  } else {
-    console.log("Esse elemento não existe na lista");
+let listaAleatoria = [];
+let listaSemNumeroRepetido = [];
+function numeroAleatorioNovaVersao() {
+  while (listaSemNumeroRepetido.length < 10) {
+    let numeroRandomico = Math.floor(Math.random() * 100);
+    if (
+      numeroRandomico >= 14 &&
+      numeroRandomico <= 50 &&
+      (numeroRandomico % 2 !== 0 || numeroRandomico % 12 === 0)
+    ) {
+      let numeroNovo = numeroRandomico;
+      listaAleatoria.push(numeroNovo);
+      listaSemNumeroRepetido = [...new Set(listaAleatoria)];
+    }
   }
 }
-
-apagarElemento(apagarItem);
-
-console.log(lista);
+numeroAleatorioNovaVersao();
+console.log(listaSemNumeroRepetido);
