@@ -7,7 +7,7 @@
 
 */
 /* EXERCICIO 4A,4B */
-/* let listaMercado = [];
+let listaMercado = [];
 let produto = ["batata", "arroz", "leite"];
 
 function adicionarProdutos(item) {
@@ -30,7 +30,7 @@ function apagarPrimeiro(lista) {
 apagarUltimo(listaMercado);
 apagarPrimeiro(listaMercado);
 
-console.log(listaMercado); */
+console.log(listaMercado);
 
 /* EXERCICIO 4C */
 
