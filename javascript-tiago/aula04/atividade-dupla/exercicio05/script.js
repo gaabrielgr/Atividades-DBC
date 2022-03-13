@@ -6,7 +6,7 @@ Crie uma função que imprima no console todas as possíveis combinações de um
 
 */
 
-let texto = "luis";
+let texto = "tri";
 let lista = texto.split("");
 let arrayFinal = [];
 /* faz o controle da movimentação do indice */

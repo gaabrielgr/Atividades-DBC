@@ -1,0 +1,49 @@
+*descricao validada
+  +============================================================+
+  |                    CADASTRO DE PRODUTOS                    |
+  +============================================================+
+
+  Obs: Utilizem Arrow Functions;
+
+  Imaginando que teremos o seguinte produto:
+  
+  (modelo do objeto)
+  {
+    id: 0           (number, deve ser sempre único, ou seja, não podem existir dois produtos com o mesmo id)
+    descricao: "",  (string)
+    preco: 0        (number)
+  }
+
+  Teremos também uma lista de produtos que será uma variável de escopo global no sistema (let, não utilizem var);
+
+  Criem um sistema onde seja possível:
+
+  1V) Cadastrar um produto;  @OK@
+    - cuidado para não ter o mesmo id (identificador);
+
+  2V) Excluir um produto pelo código;  @OK@
+
+  3V) Encontrar um produto pelo código; @OK@
+
+  4aV) Imprimir no console em tabela a lista de produtos cadastrados; @OK@
+
+  4bV) Imprimir no console em tabela a lista de descrições dos produtos cadastrados;
+
+  4cV) Selecionar uma descrição desejada e:
+    Imprimir no console em tabela somente a descrição e preço dos produtos que possuem aquela descrição escolhida;  @@@@@@ ver amanha @@@@@@@
+
+  5) Verificar o total de patrimônio da loja (preço total de todos os produtos);
+  
+  6) Verificar se todos os produtos cadastrados possuem um preço válido;
+*/
+
+
+VALIDACOES
+decrição vazia OK
+descrição com caracter especial -> retorna 2 alert
+descrição vazia após tentar cadastrar um produto -> retorna 2 alert
+preço vazio OK
+preço com caracter especial -> retorna 2 alert
+preço vazio após tentar cadastrar um produto -> retorna 2 alert
+
+necessário fazer o  3
