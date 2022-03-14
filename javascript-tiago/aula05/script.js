@@ -1,3 +1,12 @@
+//INFO DO SISTEMA
+/* 
+clicar em cancelar após acessar a opção 1, cadastrar descrição, ao clicar em cancelar na opção preço - bug
+clicar em cancelar após acessar opção 2 do menu, necessário inserir um ID já cadastrado, do contrário não vai sair do menu - bug
+clicar em cancelar após acessar opção 3 do menu, só vai sair se digitar o número 0.
+clicar em cancelar na opção 3 do submenu 4, - bug.
+
+*/
+
 //Array com os produtos
 let todosProdutos = [];
 //variáveis auxiliares
@@ -55,17 +64,20 @@ const novoProduto = (descricao, preco) => {
 
 const criarProduto = () => {
   while (confirmar) {
-    let descricaoDoProduto = prompt("Digite a descricao do produto: ").trim();
+    let descricaoDoProduto = prompt("Digite a descricao do produto: ");
+    if (descricaoDoProduto === null) {
+      break;
+    }
     let descricaoValida;
 
     do {
       console.log(descricaoDoProduto);
-      descricaoValida = validarDescricao(descricaoDoProduto);
+      descricaoValida = validarDescricao(descricaoDoProduto.trim());
       if (!descricaoValida) {
-        descricaoDoProduto = prompt(
-          "Digite uma descrição de produto válida: "
-        ).trim();
-        descricaoValida = validarDescricao(descricaoDoProduto);
+        descricaoDoProduto = prompt("Digite uma descrição de produto válida: ");
+        if (descricaoDoProduto === null) {
+          break;
+        }
       }
     } while (!descricaoValida);
     let precoDoProduto = parseFloat(
@@ -78,11 +90,9 @@ const criarProduto = () => {
         precoDoProduto = prompt(
           "Digite um preço válido para o produto: "
         ).trim();
-        precoValido = validarPreco(precoDoProduto);
       }
     } while (!precoValido);
     todosProdutos.push(novoProduto(descricaoDoProduto, precoDoProduto));
-    console.log(todosProdutos);
     confirmar = confirm("Deseja continuar cadastrando produtos? ");
   }
 };
@@ -104,7 +114,6 @@ const validarDescricao = (desc) => {
   if (!retorno) {
     alert("Descrição inválida!");
   }
-  /* console.log(retorno); */
   return retorno;
 };
 
@@ -143,7 +152,8 @@ const totalDePatrimonio = () => {
   todosProdutos.forEach((elemento) => {
     imprimirPatrimonio += elemento.preco;
   });
-  console.log(`O total do patrimônio é: ${imprimirPatrimonio}`);
+
+  alert(`O total do patrimônio é: R$ ${imprimirPatrimonio}`);
 };
 
 const selecionarId = () => {
@@ -173,6 +183,7 @@ const apagar = () => {
   let id = prompt("Insira o ID do produto que deseja apagar: ");
   do {
     if (Array.isArray(idValido)) {
+      alert("ID Inválido!");
       id = prompt("Digite um ID válido para exclusão: ");
     }
     idValido = todosProdutos.filter((item) => {
@@ -254,6 +265,7 @@ while (inicializar) {
       totalDePatrimonio();
       break;
     case "6":
+    case null:
       alert("Sistema finalizado");
       console.log(
         `Todos produtos cadastrados na base do sistema`,
