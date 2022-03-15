@@ -15,18 +15,30 @@ class Colaborador {
     }
     return this.id;
   }
-  marcacoesPonto = [];
 
-  marcarPonto(dia, hora) {}
+  pontoEletronico = [];
 
-  marcacao() {
-    dia: 22;
-    hora: 9;
+  marcacoesPonto(dia, hora) {
+    let data = new Marcacao(dia, hora);
+    this.pontoEletronico.push(data);
   }
 }
 
+class Marcacao {
+  dia;
+  hora;
+  constructor(dia, hora) {
+    this.dia = dia;
+    this.hora = hora;
+  }
+}
+
+//valida caracteres
 class Validacoes {
   validarNome(palavra) {
+    if (palavra === null) {
+      return;
+    }
     let validarPalavra = [...palavra].some(
       (caracter) => caracter.toLowerCase() !== caracter.toUpperCase()
     );
@@ -37,9 +49,11 @@ class Validacoes {
     return validarPalavra;
   }
 }
+const validar = new Validacoes();
+
+// cadastra o nome do colaborador
 
 const cadastrarColaborador = () => {
-  const validarNome = new Validacoes();
   let nome = prompt("Insira seu nome: ");
 
   if (nome === null) {
@@ -47,15 +61,36 @@ const cadastrarColaborador = () => {
     return;
   }
 
-  validado = validarNome.validarNome(nome);
+  let validado = validar.validarNome(nome);
 
   while (!validado) {
     nome = prompt("Nome inválido, tente novamente: ");
-    validado = validarNome.validarNome(nome);
+    if (nome === null) {
+      alert("Voltando ao menu!");
+      return;
+    }
+    validado = validar.validarNome(nome);
   }
 
   const colaboradorInstanciado = new Colaborador(nome);
   totalColaboradores.push(colaboradorInstanciado);
+};
+totalColaboradores = [
+  new Colaborador("Gabriel"),
+  new Colaborador("João"),
+  new Colaborador("Maria"),
+];
+// cadastrar ponto
+const marcarPonto = () => {
+  let id = parseInt(prompt("Insira o id do colaborador: "));
+  totalColaboradores.forEach((colaborador) => {
+    if (id === colaborador.id) {
+      let dia = parseInt(prompt("Insira o dia: "));
+      let hora = parseInt(prompt("Insira o hora: "));
+      colaborador.marcacoesPonto(dia, hora);
+      console.log(colaborador);
+    }
+  });
 };
 function app() {
   let opcaoMenu;
@@ -68,27 +103,27 @@ function app() {
         "Digite (4) Lista de colaboradores se marcações de ponto\n" +
         "Digite (9) Para encerrar o sistema"
     );
-    if (opcaoMenu === null) {
-      alert("sistema finalizado");
-      return;
-    }
+
     switch (opcaoMenu) {
       case "1":
         cadastrarColaborador();
         break;
       case "2":
-        console.log("chegou no 2");
+        marcarPonto();
         break;
       case "3":
         console.log("chegou no 3");
       case "9":
+      case null:
         alert("sistema finalizado");
         break;
       default:
+        alert("Opção inválida!");
         break;
     }
-  } while (opcaoMenu !== "9");
+  } while (opcaoMenu !== "9" && opcaoMenu !== null);
 }
 
 app();
+
 console.log(totalColaboradores);
