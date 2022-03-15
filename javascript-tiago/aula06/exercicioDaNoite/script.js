@@ -48,6 +48,33 @@ class Validacoes {
 
     return validarPalavra;
   }
+
+  validarNumero(numero) {
+    numero = parseInt(numero);
+    if (isNaN(numero) || numero < 0) {
+      alert("Número inválido");
+      return false;
+    }
+    return true;
+  }
+
+  validarData(numero) {
+    numero = parseInt(numero);
+    if (isNaN(numero) || numero <= 0 || numero >= 32) {
+      alert("Número inválido");
+      return false;
+    }
+    return true;
+  }
+
+  validarHora(numero) {
+    numero = parseInt(numero);
+    if (isNaN(numero) || numero < 0 || numero >= 24) {
+      alert("Número inválido");
+      return false;
+    }
+    return true;
+  }
 }
 const validar = new Validacoes();
 
@@ -80,17 +107,69 @@ totalColaboradores = [
   new Colaborador("João"),
   new Colaborador("Maria"),
 ];
+
 // cadastrar ponto
 const marcarPonto = () => {
-  let id = parseInt(prompt("Insira o id do colaborador: "));
+  let validacao;
+  let id;
+  let colaboradorEncontrado = false;
+  do {
+    do {
+      id = prompt("Insira o id do colaborador: ");
+      if (id === null) {
+        alert("Voltando ao menu;");
+        return;
+      }
+
+      validacao = validar.validarNumero(id);
+    } while (validacao === false);
+
+    id = parseInt(id);
+    totalColaboradores.forEach((colaborador) => {
+      if (id === colaborador.id) {
+        colaboradorEncontrado = true;
+        let dia;
+        let hora;
+        do {
+          dia = prompt("Insira dia trabalhado: ");
+          if (dia === null) {
+            alert("Voltando ao menu;");
+            return;
+          }
+          validacao = validar.validarData(dia);
+        } while (validacao === false);
+
+        do {
+          hora = prompt("Insira a hora trabalhada: ");
+          if (hora === null) {
+            alert("Voltando ao menu;");
+            return;
+          }
+          validacao = validar.validarHora(hora);
+        } while (validacao === false);
+
+        colaborador.marcacoesPonto(dia, hora);
+        alert("Ponto cadastrado com sucesso!");
+        console.log(colaborador);
+        return;
+      }
+    });
+    if (colaboradorEncontrado === false) {
+      alert("Id não encontrado");
+    }
+  } while (colaboradorEncontrado === false);
+};
+const mostrarColaboradores = () => {
+  console.table(totalColaboradores);
+};
+const colaboradoresSemMarcacoes = () => {
+  let colaboradoresSemMarcacoes = [];
   totalColaboradores.forEach((colaborador) => {
-    if (id === colaborador.id) {
-      let dia = parseInt(prompt("Insira o dia: "));
-      let hora = parseInt(prompt("Insira o hora: "));
-      colaborador.marcacoesPonto(dia, hora);
-      console.log(colaborador);
+    if (colaborador.pontoEletronico.length === 0) {
+      colaboradoresSemMarcacoes.push(colaborador);
     }
   });
+  console.table(colaboradoresSemMarcacoes);
 };
 function app() {
   let opcaoMenu;
@@ -112,7 +191,11 @@ function app() {
         marcarPonto();
         break;
       case "3":
-        console.log("chegou no 3");
+        mostrarColaboradores();
+        break;
+      case "4":
+        colaboradoresSemMarcacoes();
+        break;
       case "9":
       case null:
         alert("sistema finalizado");
