@@ -1,0 +1,48 @@
+/*
+  +================================================================+
+  |                    SISTEMA DE COLABORADORES                    |
+  +================================================================+
+
+  Nesse nosso sistema teremos os seguintes modelos de Entidade/Objeto/Classe ("sinônimos"):
+
+  Colaborador {
+    id;
+    nome;
+    marcacoesPonto; (um array de marcações, ex: [ { dia: 22, horas: 9 }, { dia: 23, horas: 7 } ]);
+    
+    marcarPonto( dia, hora );
+  };
+
+  Marcacao {
+      dia; (só um number mesmo, ex: 22 )
+      horas; (também só um number, ex: 9)
+  }
+  
+  Crie também uma classe de 'Validacoes' que terá métodos úteis de validação para usar em várias partes do sistema;
+  Ex: Validacoes { 
+      validaAlgo(valorParaValidar) {
+          // imaginem uma lógica validando aqui
+          return ehValido;
+      }
+  }
+
+  Para utilizar essas validações, 
+
+  Ex: const validador = new Validacoes(); // inicializando um validador (vai ser o mesmo global para o sistema, não precisa instanciar mais de 1)
+  
+  if(validador.validaAlgo('Valor qualquer')) {
+      // só pra exemplificar como utilizar
+  }
+
+  Vamos criar um sistema da seguinte forma;
+  Deve ser apresentado para o usuário um "menu" para ele escolher uma ação a ser realizada;
+
+  As opções serão:
+
+  1 - Cadastrar Colaborador;
+  2 - Marcar Ponto;
+  3 - Ver Lista de Colaboradores;
+  4 - Ver Lista de Colaboradores Que Ainda Não Marcaram o Ponto;
+  9 - Encerrar;
+*/
+
