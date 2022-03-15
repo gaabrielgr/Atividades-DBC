@@ -79,7 +79,6 @@ class Validacoes {
 const validar = new Validacoes();
 
 // cadastra o nome do colaborador
-
 const cadastrarColaborador = () => {
   let nome = prompt("Insira seu nome: ");
 
@@ -102,6 +101,8 @@ const cadastrarColaborador = () => {
   const colaboradorInstanciado = new Colaborador(nome);
   totalColaboradores.push(colaboradorInstanciado);
 };
+
+//usuarios para auxiliar nas validações
 totalColaboradores = [
   new Colaborador("Gabriel"),
   new Colaborador("João"),
@@ -208,5 +209,4 @@ function app() {
 }
 
 app();
-
 console.log(totalColaboradores);
