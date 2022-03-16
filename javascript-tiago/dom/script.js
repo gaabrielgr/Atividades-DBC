@@ -75,7 +75,7 @@ let adicionarTarefa = () => {
     let inputExcluirTarefa = document.createElement("input");
     inputExcluirTarefa.classList.add("excluir__item");
     inputExcluirTarefa.setAttribute("type", "button");
-    inputExcluirTarefa.setAttribute("disabled", "off"); // validar
+    inputExcluirTarefa.setAttribute("disabled", "off");
     inputExcluirTarefa.setAttribute("value", "X");
 
     //adiciona o conteudo da nova tarefa

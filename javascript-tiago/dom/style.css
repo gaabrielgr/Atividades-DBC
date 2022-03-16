@@ -45,9 +45,15 @@ html {
   width: 90%;
 }
 .botao__adicionar {
+  background-color: rgb(204, 204, 204, 0.2);
+  font-size: 18px;
+  color: rgb(0, 0, 0, 0.9);
+  border: 2px solid #ccc;
+  font-weight: bold;
   cursor: pointer;
   width: 44px;
   height: 44px;
+  margin: 0px 10px;
 }
 .container__lista-tarefa__item {
   align-items: center;
@@ -59,15 +65,29 @@ html {
   text-align: center;
   background-color: #f1f1f1;
   font-size: 24px;
+  height: 40px;
   width: 80%;
 }
+
 .confirmar__item,
 .excluir__item {
-  width: 30px;
-  height: 30px;
+  margin: 0px 10px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
+  border: 2px solid rgb(204, 204, 204, 0.2);
+  background-color: rgb(204, 204, 204, 0.2);
+}
+.excluir__item {
+  cursor: default;
 }
 
 .selecionar {
   background-color: rgb(0, 0, 0, 0.3);
+}
+.selecionar > .excluir__item {
+  font-size: 18px;
+  border: 2px solid rgb(0, 0, 0, 0.7);
+  font-weight: bold;
+  cursor: pointer;
 }
