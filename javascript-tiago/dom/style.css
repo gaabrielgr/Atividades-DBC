@@ -10,7 +10,7 @@ html {
 }
 
 .container {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 50vw;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -45,8 +45,9 @@ html {
   width: 90%;
 }
 .botao__adicionar {
-  width: 30px;
-  height: 30px;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
 }
 .container__lista-tarefa__item {
   align-items: center;
@@ -64,4 +65,9 @@ html {
 .excluir__item {
   width: 30px;
   height: 30px;
+  cursor: pointer;
+}
+
+.selecionar {
+  background-color: rgb(0, 0, 0, 0.3);
 }

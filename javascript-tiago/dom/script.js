@@ -1,4 +1,4 @@
-//variavel de incremento
+//variaveis auxiliares
 let incremento = 1;
 //funções auxiliares
 buscarId = (id) => {
@@ -18,23 +18,30 @@ let textoTarefa = buscarId("desc-tarefa");
 //seleçoes auxiliares da tarefa
 let conteudoLista = buscarId("conteudo-lista");
 let container = buscarId("container");
-/* let teste; // variavel teste para pais do botao excluir */
+
 //funções do programa
 let excluirTarefa = () => {
   listaBotoes = [];
   let botaoExcluir = document.querySelectorAll(".excluir__item");
   listaBotoes = [...botaoExcluir];
-  teste = listaBotoes[0];
-
   listaBotoes.forEach((botao) => {
     botao.addEventListener("click", (event) => {
       let elementoPai = event.target.parentNode;
-      elementoPai.parentNode.removeChild(elementoPai);
+      elementoPai.remove();
     });
   });
-  /* console.log(listaBotoes); */
 };
-excluirTarefa();
+let colorir = () => {
+  let idString = incremento - 1;
+  let selecionar = buscarId(idString);
+  let botaoExcluir = selecionar.lastChild;
+  let botaoMarcar = selecionar.firstChild;
+  botaoMarcar.addEventListener("click", () => {
+    botaoExcluir.toggleAttribute("disabled");
+    selecionar.classList.toggle("selecionar");
+  });
+};
+
 let limparDescricao = (valor) => {
   valor.value = valor.innerHTML = "";
   textoTarefa.focus();
@@ -43,10 +50,13 @@ let limparDescricao = (valor) => {
 
 let adicionarTarefa = () => {
   botaoAdicionar.addEventListener("click", () => {
+    if (textoTarefa.value === "") {
+      return;
+    }
     let conteudoDescricao = textoTarefa.value;
 
     //cria o corpo da tarefa
-    let novaTarefa = document.createElement("label");
+    let novaTarefa = document.createElement("div");
     novaTarefa.setAttribute("id", incremento++);
     novaTarefa.classList.add("container__lista-tarefa__item");
 
@@ -65,13 +75,17 @@ let adicionarTarefa = () => {
     let inputExcluirTarefa = document.createElement("input");
     inputExcluirTarefa.classList.add("excluir__item");
     inputExcluirTarefa.setAttribute("type", "button");
+    inputExcluirTarefa.setAttribute("disabled", "off"); // validar
     inputExcluirTarefa.setAttribute("value", "X");
+
     //adiciona o conteudo da nova tarefa
     novaTarefa.appendChild(inputTarefa);
     novaTarefa.appendChild(descricaoTarefa);
     novaTarefa.appendChild(inputExcluirTarefa);
+
     //adicionando a tarefa
     container.appendChild(novaTarefa);
+    colorir();
     excluirTarefa();
   });
 };
