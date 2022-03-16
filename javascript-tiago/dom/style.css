@@ -1,0 +1,67 @@
+h1,
+input,
+p,
+button,
+div,
+body,
+html {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 50vw;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  height: 100%;
+}
+.container__titulo {
+  border-radius: 8px;
+  background-color: rgb(204, 204, 204, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  text-align: center;
+}
+
+.adicionar__produto {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid black;
+}
+.produto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.descricao__tarefa {
+  height: 40px;
+  outline: none;
+  font-size: 24px;
+  width: 90%;
+}
+.botao__adicionar {
+  width: 30px;
+  height: 30px;
+}
+.container__lista-tarefa__item {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.container__lista-tarefa__item__texto {
+  margin: 20px 0px;
+  text-align: center;
+  background-color: #f1f1f1;
+  font-size: 24px;
+  width: 80%;
+}
+.confirmar__item,
+.excluir__item {
+  width: 30px;
+  height: 30px;
+}
