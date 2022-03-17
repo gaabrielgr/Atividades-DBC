@@ -96,7 +96,6 @@ const validarSenha = (event) => {
   } else {
     erro = erro.classList.remove("d-none");
   }
-
   return ehValido;
 };
 
@@ -148,18 +147,27 @@ const validarData = () => {
 };
 
 const validarNome = () => {
-  let inputNome = document.getElementsByClassName("nome-input");
-  return true;
+  let erro = document.getElementById("nome-erro");
+  let validar = true;
+  let inputNome = document.getElementById("nome-input").value;
+
   if (inputNome === null) {
     return;
   }
-  let validarPalavra = [...inputNome].some((caracter) => 1 == 1);
-  console.log(validarPalavra);
-  if (!validarPalavra) {
-    alert("Nome inválido!");
+  let validarPalavra = [...inputNome];
+  validarPalavra.forEach((caracter) => {
+    if (caracter.toLowerCase() === caracter.toUpperCase()) {
+      validar = false;
+    }
+  });
+
+  if (validar) {
+    erro = erro.classList.add("d-none");
+  } else {
+    erro = erro.classList.remove("d-none");
   }
 
-  return validarPalavra;
+  return validar;
 };
 
 const imprimir = (nome, data, senha, email) => {
