@@ -1,0 +1,12 @@
+
+- adicionar um campo de nome acima da data de nascimento e adicionar a validação para possuir somente letras;
+
+  - criar uma classe Colaborador contendo todas as propriedades que os campos possuem e uma propriedade id;
+
+  - ao clicar em cadastrar, instanciar um colaborador e adicioná-lo à ul e à uma lista de colaboradores;
+
+  - adicionar um botão 'Visualizar Colaboradores' (pode ser no topo da tela à direita) 
+  
+    que imprime no console todos os colaboradores cadastrados 
+    (ATENÇÃO -> buscar os colaboradores pelo document e não fazer um simples forEach da lista de colaboradores)
+*/
