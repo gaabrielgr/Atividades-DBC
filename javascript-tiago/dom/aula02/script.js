@@ -264,6 +264,7 @@ class Colaborador {
     this.senha = senha;
     this.email = email;
   }
+
   static incrementoId() {
     if (!this.id) {
       this.id = 1;
