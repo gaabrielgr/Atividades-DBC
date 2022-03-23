@@ -4,7 +4,7 @@ const Card = () => {
   return (
     <div className={styleCard.card}>
       <img src={imagemCogumelo} alt="Card" width="120px" height="120px" />
-      <p className={styleCard.texto}>Cogumelo01</p>
+      <p className={styleCard.texto}>Cogumelo</p>
     </div>
   );
 };
