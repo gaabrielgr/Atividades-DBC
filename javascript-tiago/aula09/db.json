@@ -6,6 +6,20 @@
       "senha": "Gabriel12345@",
       "email": "gabriel@dbccompany.com",
       "id": 1
+    },
+    {
+      "nome": "Carlinhos",
+      "dataNascimento": "01/01/2000",
+      "senha": "Carlos@101020",
+      "email": "carlinhos@gmail.com",
+      "id": 2
+    },
+    {
+      "nome": "Joao",
+      "dataNascimento": "01/01/2000",
+      "senha": "Joao@123456",
+      "email": "joao@gmail.com",
+      "id": 3
     }
   ]
 }

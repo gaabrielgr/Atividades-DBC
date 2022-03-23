@@ -1,0 +1,42 @@
+select,
+input,
+textarea {
+  padding: 4px;
+  border: 2px solid rgb(249, 136, 0, 0.4);
+  border-radius: 4px;
+  outline: none;
+}
+.containerInput {
+  display: flex;
+  flex-direction: column;
+}
+.containerInput input,
+.containerInput select,
+.containerInput textarea {
+  margin-top: 4px;
+  width: 400px;
+}
+.botao {
+  width: 260px;
+  padding: 5px 30px;
+}
+.containerFormulario {
+  border-top: 2px solid rgb(249, 136, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  font-size: 24px;
+}
+.formulario {
+  width: 600px;
+  padding: 80px;
+  border: 2px solid rgb(249, 136, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}

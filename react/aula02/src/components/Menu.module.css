@@ -1,0 +1,9 @@
+ul,
+li {
+  list-style: none;
+}
+
+.containerMenu {
+  display: flex;
+  column-gap: 40px;
+}

@@ -184,6 +184,11 @@ const validarLogin = () => {
 };
 //@@@@@@@@HOME WORK@@@@@@@@@@@@@@@@@
 const listarUsuarios = () => {
+  let user = document.getElementById("user-list");
+  if (user.children.length > 0) {
+    apagarLista();
+  }
+
   const home = document.getElementById("user-list");
   listaUsuarios.forEach((usuario) => {
     let li = document.createElement("li");
@@ -228,8 +233,6 @@ const limparInput = () => {
   document.getElementById("date-input-registration").value = "";
   document.getElementById("email-input-registration").value = "";
   document.getElementById("password-input-registration").value = "";
-  /*   document.getElementById("erro-email-senha").textContent = "";
-   */
 };
 
 const excluirColaborador = () => {};
