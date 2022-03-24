@@ -1,9 +1,8 @@
 import React from "react";
-import Perfil from "../components/Cards/Perfil";
-export const Home = () => {
+export const Home = ({ dados }) => {
   return (
-    <div>
-      <Perfil />
-    </div>
+    <>
+      <div>{dados && <div>{dados.login}</div>}</div>
+    </>
   );
 };

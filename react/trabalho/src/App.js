@@ -6,34 +6,45 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Contato } from "./pages/Contato";
 import { Trabalhos } from "./pages/Trabalhos";
+import { TratamentoErro } from "./components/TratamentoErro";
 
 function App() {
-  const [dados, setDados] = React.useState(null);
-  let usuario = "gaabrielgr";
+  const [dados, setDados] = React.useState({});
+  const usuario = "gaabrielgr";
 
+  const getDados = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://api.github.com/users/${usuario}`
+      );
+      setDados(data);
+    } catch (error) {
+      console.log("Falha ao puxar as informações", error);
+    }
+  };
   React.useEffect(() => {
-    const getDados = async () => {
-      try {
-        const { data } = await axios.get(
-          `https://api.github.com/users/${usuario}`
-        );
-        setDados(data);
-      } catch (error) {
-        console.log("Falha ao puxar as informações", error);
-      }
-    };
     getDados();
   }, []);
+  const verificarObjeto = () => {
+    if (Object.keys(dados).length) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   return (
     <div className={styleApp.main}>
-      <BrowserRouter>
-        {dados && <Dados informacoes={dados} />}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/trabalhos" element={<Trabalhos />} />
-          <Route path="/contato" element={<Contato />} />
-        </Routes>
-      </BrowserRouter>
+      {verificarObjeto() ? (
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home dados={dados} />} />
+            <Route path="/trabalhos" element={<Trabalhos />} />
+            <Route path="/contato" element={<Contato />} />
+          </Routes>
+        </BrowserRouter>
+      ) : (
+        <TratamentoErro />
+      )}
     </div>
   );
 }
