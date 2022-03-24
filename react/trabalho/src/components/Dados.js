@@ -1,10 +1,5 @@
 import React from "react";
-import { Card } from "./Cards/Card";
+import { Perfil } from "./Cards/Perfil";
 export const Dados = ({ informacoes }) => {
-  return (
-    <div>
-      {/* {informacoes.login} */}
-      <Card nome={informacoes.name} />
-    </div>
-  );
+  return <Perfil nome={informacoes} />;
 };
