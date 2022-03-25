@@ -1,0 +1,55 @@
+.repositorio {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.repositorio span {
+  text-transform: capitalize;
+}
+
+.tituloProjeto {
+  color: rgb(22, 22, 22, 0.7);
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+.containerRepositorio {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  margin-bottom: 20px;
+}
+.itemRepositorio {
+  width: 100%;
+  padding: 10px;
+  height: 120px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 24px;
+  background-color: rgb(22, 22, 22, 0.5);
+  border: 1px outset #979797;
+}
+.itemRepositorio:hover {
+  background-color: rgb(22, 22, 22, 0.7);
+}
+.linkProjeto:hover {
+  text-decoration: underline;
+}
+
+.botao {
+  font-size: 18px;
+  margin-top: 20px;
+  color: #fff;
+  cursor: pointer;
+  background-color: rgb(22, 22, 22, 0.4);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 45px;
+}
+.botao:hover {
+  background-color: rgb(22, 22, 22, 0.7);
+}

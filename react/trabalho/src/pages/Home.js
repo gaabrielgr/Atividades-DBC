@@ -1,8 +1,10 @@
 import React from "react";
+import Perfil from "../components/Cards/Perfil";
+
 export const Home = ({ dados }) => {
   return (
     <>
-      <div>{dados && <div>{dados.login}</div>}</div>
+      <Perfil dados={dados} />
     </>
   );
 };

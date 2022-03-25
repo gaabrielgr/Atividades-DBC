@@ -1,15 +1,15 @@
 import React from "react";
 import axios from "axios";
-import { Dados } from "./components/Dados";
 import styleApp from "./App.module.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { Contato } from "./pages/Contato";
+import Contato from "./pages/Contato.js";
 import { Trabalhos } from "./pages/Trabalhos";
 import { TratamentoErro } from "./components/TratamentoErro";
 
 function App() {
   const [dados, setDados] = React.useState({});
+  const [repo, setRepo] = React.useState([]);
   const usuario = "gaabrielgr";
 
   const getDados = async () => {
@@ -22,7 +22,19 @@ function App() {
       console.log("Falha ao puxar as informações", error);
     }
   };
+  const getDadosRepo = async () => {
+    try {
+      const { data } = await axios.get(
+        `https://api.github.com/users/gaabrielgr/repos`
+      );
+      setRepo(data);
+    } catch (error) {
+      console.log("Falha ao puxar as informações", error);
+    }
+  };
+
   React.useEffect(() => {
+    getDadosRepo();
     getDados();
   }, []);
   const verificarObjeto = () => {
@@ -38,7 +50,10 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home dados={dados} />} />
-            <Route path="/trabalhos" element={<Trabalhos />} />
+            <Route
+              path="/trabalhos"
+              element={<Trabalhos repositorio={repo} />}
+            />
             <Route path="/contato" element={<Contato />} />
           </Routes>
         </BrowserRouter>
