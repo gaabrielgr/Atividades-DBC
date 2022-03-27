@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import styleApp from "./App.module.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import styleApp from "./App.module.css";
 import { Home } from "./pages/Home";
 import Contato from "./pages/Contato.js";
 import { Trabalhos } from "./pages/Trabalhos";
@@ -19,7 +19,7 @@ function App() {
       );
       setDados(data);
     } catch (error) {
-      console.log("Falha ao puxar as informações", error);
+      console.log("Falha ao fazer a requisição", error);
     }
   };
   const getDadosRepo = async () => {
@@ -29,7 +29,7 @@ function App() {
       );
       setRepo(data);
     } catch (error) {
-      console.log("Falha ao puxar as informações", error);
+      console.log("Falha ao fazer a requisição", error);
     }
   };
 

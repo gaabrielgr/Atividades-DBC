@@ -1,17 +1,18 @@
-select,
-input,
-textarea {
+input {
   padding: 4px;
   border-radius: 4px;
   outline: none;
   border: 1px solid rgb(0, 0, 0);
+  font-size: 16px;
+}
+label {
+  font-size: 18px;
 }
 .containerInput {
   display: flex;
   flex-direction: column;
 }
-.containerInput input,
-.containerInput textarea {
+.containerInput input {
   margin-top: 4px;
   width: 400px;
 }
@@ -30,8 +31,9 @@ textarea {
   font-size: 24px;
 }
 .formulario {
+  margin: 20px auto 0px auto;
   width: 600px;
-  padding: 80px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;

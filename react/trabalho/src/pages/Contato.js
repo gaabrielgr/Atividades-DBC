@@ -51,6 +51,7 @@ const Contato = () => {
           textoLabel={"Sua mensagem"}
           linhas={30}
           colunas={10}
+          placeholderArea={"Digite sua mensagem..."}
         />
         <BotaoEnviar valor={"Enviar"} />
       </form>

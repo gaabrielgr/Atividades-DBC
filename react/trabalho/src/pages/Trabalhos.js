@@ -9,39 +9,28 @@ export const Trabalhos = ({ repositorio }) => {
     <section className={styleRepositorio.repositorio}>
       <h1 className={styleRepositorio.tituloProjeto}>PROJETOS</h1>
       <ul className={styleRepositorio.containerRepositorio}>
-        {infoRepo.map(
-          ({
-            name,
-            description,
-            language,
-            stargazers_count,
-            forks_count,
-            fork,
-            clone_url,
-            id,
-          }) => (
-            <li className={styleRepositorio.item} key={id}>
-              <div className={styleRepositorio.itemRepositorio}>
-                <span>Nome: {name}</span>
-                {description !== null ? (
-                  <span>Descriçao: {description}</span>
-                ) : (
-                  ""
-                )}
-                {language !== null ? <span>Linguagens: {language}</span> : ""}
-                <span>
-                  <a
-                    className={styleRepositorio.linkProjeto}
-                    href={clone_url}
-                    target="_blank"
-                  >
-                    Link do projeto
-                  </a>
-                </span>
-              </div>
-            </li>
-          )
-        )}
+        {infoRepo.map(({ name, description, language, clone_url, id }) => (
+          <li className={styleRepositorio.item} key={id}>
+            <div className={styleRepositorio.itemRepositorio}>
+              <span>Nome: {name}</span>
+              {description !== null ? (
+                <span>Descriçao: {description}</span>
+              ) : (
+                ""
+              )}
+              {language !== null ? <span>Linguagens: {language}</span> : ""}
+              <span>
+                <a
+                  className={styleRepositorio.linkProjeto}
+                  href={clone_url}
+                  target="_blank"
+                >
+                  Link do projeto
+                </a>
+              </span>
+            </div>
+          </li>
+        ))}
       </ul>
       <Link to={"/"}>
         <Buttons valor={"Voltar"} />
