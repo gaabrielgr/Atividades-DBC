@@ -19,9 +19,6 @@ export const GlobalStorage = ({ children }) => {
     };
     setId(id + 1);
     setListaTrab([...listaTrab, trabalhador]);
-    /* document.querySelector("#login").value = "";
-    document.querySelector("#email").value = "";
-    document.querySelector("#profissao").value = ""; */
   };
 
   const removerTrabalhador = (id) => {
