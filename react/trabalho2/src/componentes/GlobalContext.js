@@ -8,6 +8,12 @@ export const GlobalStorage = ({ children }) => {
   const [profissao, setProfissao] = React.useState("");
   const [listaTrab, setListaTrab] = React.useState([]);
 
+  const limparFormulario = () => {
+    setNome("");
+    setEmail("");
+    setProfissao("");
+  };
+
   const CadastrarUsuario = (event) => {
     event.preventDefault();
 
@@ -19,6 +25,10 @@ export const GlobalStorage = ({ children }) => {
     };
     setId(id + 1);
     setListaTrab([...listaTrab, trabalhador]);
+    document.querySelector("#login").value = "";
+    document.querySelector("#email").value = "";
+    document.querySelector("#profissao").value = "";
+    limparFormulario();
   };
 
   const removerTrabalhador = (id) => {
@@ -60,6 +70,7 @@ export const GlobalStorage = ({ children }) => {
         CadastrarUsuario,
         removerTrabalhador,
         alterarTrabalhador,
+        limparFormulario,
       }}
     >
       {children}

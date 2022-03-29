@@ -14,12 +14,9 @@ export const Formulario = () => {
     email,
     setEmail,
     CadastrarUsuario,
+    limparFormulario,
   } = React.useContext(GlobalContext);
-  const limparFormulario = () => {
-    setNome("");
-    setEmail("");
-    setProfissao("");
-  };
+
   const validarNome = /^[a-z ,.'-]+$/i;
   const validarEmail = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+?$/i;
   const validarProfissao = /^[a-z ,.'-]+$/i;
