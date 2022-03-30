@@ -1,0 +1,9 @@
+a {
+  color: #000;
+  font-size: 24px;
+}
+.menu {
+  color: #000;
+  display: flex;
+  column-gap: 20px;
+}

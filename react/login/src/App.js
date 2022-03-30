@@ -1,18 +1,23 @@
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import Login from "./pages/Login";
 import Users from "./pages/Users";
 import AuthenticatorProvider from "./contexts/ContextAuthenticator";
+import Header from "./components/header/Header";
+import Home from "./pages/Home";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <BrowserRouter>
         <AuthenticatorProvider>
+          <Header />
           <Routes>
-            <Route path={"/"} element={<Login />} />
+            <Route exact path={"/"} element={<Home />} />
+            <Route path={"/login"} element={<Login />} />
             <Route path={"/users"} element={<Users />} />
           </Routes>
+          <Footer />
         </AuthenticatorProvider>
       </BrowserRouter>
     </div>

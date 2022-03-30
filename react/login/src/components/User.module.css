@@ -7,3 +7,41 @@
 .botaoSair:hover {
   background-color: rgb(224, 224, 224);
 }
+.ul {
+  display: grid;
+  grid-template-columns: auto;
+  row-gap: 20px;
+  padding-left: 10px;
+}
+.li {
+  border: 0.5px solid black;
+  width: 350px;
+  display: flex;
+  border-bottom: 0px;
+  height: auto;
+}
+.li p {
+  font-size: 18px;
+  height: 30px;
+  width: 350px;
+  border-bottom: 0.5px solid black;
+}
+
+.divNumeroContato {
+  width: 350px;
+  text-transform: capitalize;
+  justify-content: center;
+  align-items: center;
+  border: 0.5px solid black;
+  border-bottom: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+.divNumeroContato p {
+  display: flex;
+  border-bottom: 0.5px solid black;
+}
+.p {
+  border-bottom: 0px;
+}

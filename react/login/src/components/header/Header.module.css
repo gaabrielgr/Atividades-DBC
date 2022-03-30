@@ -1,0 +1,14 @@
+header a {
+  color: #000;
+}
+
+.botaoSair {
+  height: 25px;
+  width: 50px;
+}
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  background-color: #f1f1f1;
+}

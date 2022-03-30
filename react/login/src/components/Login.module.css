@@ -4,6 +4,7 @@
   align-items: center;
 }
 .formularioContainer {
+  margin: 50px auto;
   padding: 50px;
   width: 400px;
   border: 1px solid rgb(0, 0, 0, 0.4);
