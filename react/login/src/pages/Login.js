@@ -9,30 +9,36 @@ const Login = () => {
 
   return (
     <div className={styleForm.formularioContainer}>
-      <h1>Faça login</h1>
-      <Formik
-        initialValues={{
-          usuario: "",
-          senha: "",
-        }}
-        onSubmit={async (values) => {
-          handleLogin(values);
-        }}
-      >
-        <Form className={styleForm.formulario}>
-          <label htmlFor="usuario">Usuário</label>
-          <Field id="usuario" name="usuario" placeholder="Digite seu usuário" />
-          <label htmlFor="senha">Senha</label>
-          <Field
-            placeholder="Digite sua senha"
-            id="senha"
-            name="senha"
-            type="password"
-          />
+      <div className={styleForm.div}>
+        <h1>Faça login</h1>
+        <Formik
+          initialValues={{
+            usuario: "",
+            senha: "",
+          }}
+          onSubmit={async (values) => {
+            handleLogin(values);
+          }}
+        >
+          <Form className={styleForm.formulario}>
+            <label htmlFor="usuario">Usuário</label>
+            <Field
+              id="usuario"
+              name="usuario"
+              placeholder="Digite seu usuário"
+            />
+            <label htmlFor="senha">Senha</label>
+            <Field
+              placeholder="Digite sua senha"
+              id="senha"
+              name="senha"
+              type="password"
+            />
 
-          <button type="submit">Logar</button>
-        </Form>
-      </Formik>
+            <button type="submit">Logar</button>
+          </Form>
+        </Formik>
+      </div>
     </div>
   );
 };

@@ -1,0 +1,27 @@
+.gifError {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 40px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.gifError h1 {
+  font-size: 60px;
+}
+.gifError img {
+  height: 30%;
+}
+.gifLoading {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  row-gap: 40px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.gifLoading img {
+  height: 25%;
+}

@@ -1,19 +1,22 @@
 import { createContext, useState, useEffect } from "react";
-import api from "../api";
 import { useNavigate } from "react-router-dom";
+import api from "../api";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
 export const ContextAuthenticator = createContext();
 
 function AuthenticatorProvider({ children }) {
   const [key, setKey] = useState("");
   const navigatePage = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getToken = localStorage.getItem("key");
+    setLoading(false);
     if (getToken) {
       api.defaults.headers.common["Authorization"] = getToken;
     }
-    setLoading(false);
   }, []);
 
   async function handleLogin(values) {
@@ -24,6 +27,8 @@ function AuthenticatorProvider({ children }) {
       api.defaults.headers.common["Authorization"] = data;
       navigatePage("/users");
     } catch (error) {
+      setLoading(false);
+      setError(true);
       console.log(error);
     }
   }
@@ -38,7 +43,14 @@ function AuthenticatorProvider({ children }) {
     }
   }
   if (loading) {
-    return <h1>carregando</h1>;
+    return <Loading />;
+  }
+  if (error) {
+    return (
+      <div>
+        <Error />;
+      </div>
+    );
   }
   return (
     <ContextAuthenticator.Provider

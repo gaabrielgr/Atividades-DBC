@@ -5,6 +5,7 @@ import AuthenticatorProvider from "./contexts/ContextAuthenticator";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
 import Footer from "./components/footer/Footer";
+import Address from "./pages/Address";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route exact path={"/"} element={<Home />} />
             <Route path={"/login"} element={<Login />} />
             <Route path={"/users"} element={<Users />} />
+            <Route path={"/address"} element={<Address />} />
           </Routes>
           <Footer />
         </AuthenticatorProvider>
