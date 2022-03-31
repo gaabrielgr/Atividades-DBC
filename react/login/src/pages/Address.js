@@ -7,6 +7,7 @@ function Address() {
   const [cepApi, setCepApi] = useState({});
   const [cep, setCep] = useState("");
   const [error, setError] = useState(null);
+  const [addressNumber, setAddressNumber] = useState("");
 
   function handleChange({ target }) {
     if (error) validateCep(target.value);
@@ -40,6 +41,8 @@ function Address() {
     event.preventDefault();
     if (validateCep(cep)) {
       console.table(cepApi);
+
+      console.log("Numero da residência: " + addressNumber);
     } else {
       console.log("Não enviar");
     }
@@ -51,7 +54,6 @@ function Address() {
   setValue("estado", cepApi.uf);
   setValue("dd", cepApi.ddd);
   setValue("cep", cepApi.cep);
-
   return (
     <div className={styleAddress.divContainer}>
       <form className={styleAddress.endereco} onSubmit={onSubmit}>
@@ -67,6 +69,7 @@ function Address() {
             value={cep}
             onChange={handleChange}
             onBlur={handleBlur}
+            placeholder="Digite seu CEP"
           />
         </div>
 
@@ -104,7 +107,7 @@ function Address() {
             id="numero"
             name="numero"
             type="text"
-            {...register("numero")}
+            onChange={(event) => setAddressNumber(event.target.value)}
           />
         </div>
         <button>Cadastrar</button>
