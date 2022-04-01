@@ -34,7 +34,7 @@ function AuthenticatorProvider({ children }) {
   }
   const deslogar = () => {
     localStorage.removeItem("key");
-    navigatePage("/");
+    navigatePage("/login");
   };
   function logged() {
     const token = localStorage.getItem("key");

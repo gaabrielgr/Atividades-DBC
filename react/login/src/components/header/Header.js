@@ -10,8 +10,10 @@ const Header = () => {
 
   return (
     <header className={styleHeader.cabecalho}>
-      <Logo />
-      <Menu />
+      <div className={styleHeader.menuLeft}>
+        <Logo />
+        <Menu />
+      </div>
       {token && (
         <button className={styleHeader.botaoSair} onClick={deslogar}>
           Sair

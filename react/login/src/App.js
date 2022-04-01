@@ -21,7 +21,6 @@ function App() {
               <Route path={"/login"} element={<Login />} />
               <Route path={"/users"} element={<Users />} />
               <Route path={"/address"} element={<Address />} />
-              {/* <Route path={"/create-user"} element={<CreateUser />} /> */}
               <Route path="/create-user" element={<CreateUser />}>
                 <Route path=":id" element={<CreateUser />} />
               </Route>

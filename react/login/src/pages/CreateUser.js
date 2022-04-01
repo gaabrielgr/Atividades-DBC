@@ -1,133 +1,183 @@
-import React, { useEffect, useState } from "react";
-import { Formik, Field, Form } from "formik";
+import React, { useEffect, useState, useContext } from "react";
+import moment from "moment";
 import { ToastContainer, toast } from "react-toastify";
-import { matchPath, useLocation } from "react-router-dom";
-
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate, useLocation } from "react-router-dom";
+import styleCreateFormulario from "../components/CreateUser.module.css";
 import api from "../api";
-
-const CreateUser = () => {
-  const [attUserList, setAttUserList] = useState({});
-  const [changeButton, setChangeButton] = useState(true);
+import { ContextAuthenticator } from "../contexts/ContextAuthenticator";
+export default function CreateUser() {
   const location = useLocation();
-  const idUserAtt = location.pathname.split("/create-user/")[1];
+  const navigate = useNavigate();
+  const [update, setUpdate] = useState(false);
+  const [nome, setNome] = useState("");
+  const [email, setEmail] = useState("");
+  const [dataNascimento, setDataNascimento] = useState("");
+  const [cpf, setCpf] = useState("");
+  const { logged } = useContext(ContextAuthenticator);
+  useEffect(() => {
+    logged();
+  }, []);
+  let idPerson = location.pathname.substring(13);
 
-  const notify = () => {
-    toast.success("Usuário cadastrado com sucesso !", {
+  const mensagemSucesso = (texto) => {
+    toast.success(texto, {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  const notifyAtt = () => {
-    toast.info("Usuário atualizado com sucesso !", {
+
+  const mensagemErro = (texto) => {
+    toast.error(texto, {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  async function CreateNewUser(values) {
+  const userId = async () => {
     try {
-      const { data } = await api.post("/pessoa", values);
-      console.log(data);
-      setChangeButton(true);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  async function attUser(values) {
-    /*  const user = {
-      cpf: values.cpf,
-      dataNascimento: values.dataNascimento,
-      email: values.email,
-      nome: values.nome,
-    }; */
+      const { data } = await api.get(`pessoa/{idPessoa}?idPessoa=${idPerson}`);
+      let formatDate = moment(data.dataNascimento).format("DD/MM/YYYY");
 
-    try {
-      const { data } = await api.put(`/pessoa/${idUserAtt}`, values);
-      console.log(data);
+      setNome(data.nome);
+      setEmail(data.email);
+      maskDate(formatDate);
+      maskCPF(data.cpf);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
-  async function HandleGetUserAtt() {
+  const updateUser = async (e) => {
+    e.preventDefault();
+
+    let formatDate = dataNascimento;
+    formatDate = moment(formatDate, "DD/MM/YYYY").format("YYYY-MM-DD");
+
+    let formatCpf = cpf.split(".").join("");
+    let newCpf = formatCpf.replace("-", "");
+
+    const newPerson = {
+      nome: nome,
+      email: email,
+      dataNascimento: formatDate,
+      cpf: newCpf,
+    };
     try {
-      const { data } = await api.get(
-        `/pessoa/{idPessoa}?idPessoa=${idUserAtt}`
-      );
-      setAttUserList(data);
-      setChangeButton(false);
+      const { data } = await api.put(`/pessoa/${idPerson}`, newPerson);
+      mensagemSucesso("Atualizado com sucesso!");
+      setTimeout(() => {
+        navigate("/users");
+      }, 7000);
     } catch (error) {
-      console.log(error);
+      console.log("error");
     }
-  }
+  };
 
   useEffect(() => {
-    if (idUserAtt.length > 0) {
-      HandleGetUserAtt();
-      return;
+    if (idPerson) {
+      userId();
+      setUpdate(true);
     }
   }, []);
 
+  const maskCPF = (value) => {
+    return setCpf(
+      value
+        .replace(/\D/g, "")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d)/, "$1.$2")
+        .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+        .replace(/(-\d{2})\d+?$/, "$1")
+    );
+  };
+
+  const maskDate = (value) => {
+    return setDataNascimento(
+      value
+        .replace(/\D/g, "")
+        .replace(/(\d{2})(\d)/, "$1/$2")
+        .replace(/(\d{2})(\d)/, "$1/$2")
+        .replace(/(\d{4})(\d)/, "$1")
+    );
+  };
+
+  async function createNewUser(e) {
+    e.preventDefault();
+    let formatData = dataNascimento;
+    formatData = moment(formatData, "DD/MM/YYYY").format("YYYY-MM-DD");
+
+    let formatCpf = cpf.split(".").join("");
+    let newCpf = formatCpf.replace("-", "");
+
+    const newPerson = {
+      nome: nome,
+      dataNascimento: formatData,
+      email: email,
+      cpf: newCpf,
+    };
+    try {
+      const { data } = await api.post("/pessoa", newPerson);
+      console.log(data);
+      mensagemSucesso("Cadastrado com sucesso!");
+      setTimeout(() => {
+        navigate("/users");
+      }, 6000);
+    } catch (error) {
+      mensagemErro("Não foi possível cadastrar!");
+    }
+  }
+
   return (
-    <Formik
-      initialValues={{
-        cpf: "",
-        dataNascimento: "",
-        email: "",
-        nome: "",
-      }}
-      onSubmit={async (values) => {
-        if (changeButton) {
-          CreateNewUser(values);
-        } else {
-          attUser(values);
-        }
-      }}
-    >
-      <Form>
-        <label htmlFor="nome">Nome</label>
-        <Field
+    <div className={styleCreateFormulario.containerFormulario}>
+      <h1>Faça o seu cadastro!</h1>
+      <form
+        className={styleCreateFormulario.formulario}
+        onSubmit={(e) => (update ? updateUser(e) : createNewUser(e))}
+      >
+        <label htmlFor="nome">Nome: </label>
+        <input
+          value={nome}
           id="nome"
           name="nome"
-          placeholder="Digite seu nome: "
-          value={attUserList.nome}
+          placeholder="Digite seu Nome:"
+          onChange={(e) => setNome(e.target.value)}
         />
 
         <label htmlFor="email">Email</label>
-        <Field
+        <input
+          value={email}
           id="email"
-          name="email"
-          placeholder="email"
           type="email"
-          value={attUserList.email}
+          name="email"
+          placeholder="Digite seu email"
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <label htmlFor="dataNascimento">Data de nascimento</label>
-        <Field
+        <label htmlFor="dataNascimento">Data de Nascimento</label>
+        <input
+          value={dataNascimento}
           id="dataNascimento"
           name="dataNascimento"
-          placeholder="00/00/0000"
-          value={attUserList.dataNascimento}
+          placeholder="Digite sua data de nascimento"
+          onChange={(e) => maskDate(e.target.value)}
         />
-        <label htmlFor="cpf">CPF</label>
-        <Field
+
+        <label htmlFor="cpf">Cpf</label>
+        <input
           id="cpf"
           name="cpf"
-          value={attUserList.cpf}
-          placeholder="Digite seu CPF: "
+          placeholder="digite seu cpf"
+          value={cpf}
+          onChange={(e) => maskCPF(e.target.value)}
         />
-        {changeButton ? (
-          <button onClick={notify} type="submit">
-            Cadastrar
-          </button>
+
+        {update ? (
+          <button type="submit">Atualizar</button>
         ) : (
-          <button onClick={notifyAtt} type="submit">
-            Atualizar
-          </button>
+          <div>
+            <button type="submit">Cadastrar</button>
+            <ToastContainer />
+          </div>
         )}
-
-        <ToastContainer />
-      </Form>
-    </Formik>
+      </form>
+    </div>
   );
-};
-
-export default CreateUser;
+}

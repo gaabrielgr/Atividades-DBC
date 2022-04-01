@@ -1,11 +1,20 @@
 header a {
-  color: #000;
+  color: rgb(0, 0, 0, 0.6);
 }
-
+header a:hover {
+  color: #000;
+  text-decoration: underline;
+}
 .botaoSair {
-  height: 35px;
+  height: 40px;
   width: 70px;
   cursor: pointer;
+  background-color: #f1f1f1;
+  border: 2px solid #ccc;
+  font-size: 16px;
+}
+.botaoSair:hover {
+  background-color: rgb(221, 221, 221, 0.7);
 }
 .cabecalho {
   display: flex;
@@ -13,6 +22,21 @@ header a {
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
-  height: 50px;
+  height: 70px;
   background-color: #ebebeb;
+  border-bottom: 0.5px solid black;
+}
+.menuLeft {
+  display: flex;
+  align-items: center;
+  column-gap: 100px;
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+  height: 100%;
+  border-right: 0.5px solid black;
 }

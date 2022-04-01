@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useForm } from "react-hook-form";
 import styleAddress from "../components/Address.module.css";
 import ApiCep from "./ApiCep";
+import { ContextAuthenticator } from "../contexts/ContextAuthenticator";
 function Address() {
   const { register, setValue } = useForm();
   const [cepApi, setCepApi] = useState({});
   const [cep, setCep] = useState("");
   const [error, setError] = useState(null);
   const [addressNumber, setAddressNumber] = useState("");
-
+  const { logged } = useContext(ContextAuthenticator);
+  useEffect(() => {
+    logged();
+  }, []);
   function handleChange({ target }) {
     if (error) validateCep(target.value);
     setCep(target.value);

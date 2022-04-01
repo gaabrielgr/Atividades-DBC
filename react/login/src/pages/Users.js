@@ -8,6 +8,8 @@ import styleItemListaUsuario from "../components/User.module.css";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import { ContextUser } from "../contexts/ContextUser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import api from "../api";
 
@@ -24,6 +26,18 @@ const Users = () => {
     setup();
   }, []);
 
+  const mensagemSucesso = (texto) => {
+    toast.success(texto, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
+  const mensagemErro = (texto) => {
+    toast.error(texto, {
+      position: toast.POSITION.TOP_CENTER,
+    });
+  };
+
   const handleDelete = (idPessoa) => {
     confirmAlert({
       title: "Confirmar",
@@ -34,11 +48,11 @@ const Users = () => {
           onClick: async () => {
             try {
               const response = await api.delete(`/pessoa/${idPessoa}`);
-
+              getUsers();
               console.log(response);
-              alert("Usuário deletado!");
+              mensagemSucesso("Usuário deletado com sucesso !");
             } catch (error) {
-              alert("Não foi possível deletar o usuário!");
+              mensagemErro("Erro ao deletar o usuário");
               console.log(error);
             }
           },
@@ -64,8 +78,9 @@ const Users = () => {
 
   return (
     <div className={styleItemListaUsuario.divPaiUl}>
-      <h1>Lista usuários</h1>
-      <Link to="/create-user">Cadastrar Usuário</Link>
+      <div className={styleItemListaUsuario.tituloLista}>
+        <Link to="/create-user">Cadastrar Novo Usuário</Link>
+      </div>
       <ul className={styleItemListaUsuario.ul}>
         {listUser.map(
           ({ idPessoa, nome, dataNascimento, cpf, email, contatosList }) => (
@@ -75,12 +90,9 @@ const Users = () => {
                 <p>Data de nascimento: {dataNascimento}</p>
                 <p>CPF: {cpf}</p>
                 <p>Email: {email}</p>
-                <button onClick={() => handleDelete(idPessoa)}>Deletar</button>
-                <button onClick={() => navigate(`/create-user/${idPessoa}`)}>
-                  Atualizar
-                </button>
-                <>
-                  {contatosList.map(
+                {/*
+                <div>
+                   {contatosList.map(
                     ({ idContato, numero, descricao, tipoContato }) => (
                       <div
                         className={styleItemListaUsuario.divNumeroContato}
@@ -98,12 +110,19 @@ const Users = () => {
                       </div>
                     )
                   )}
-                </>
+                </div> */}
+              </div>
+              <div className={styleItemListaUsuario.botao}>
+                <button onClick={() => handleDelete(idPessoa)}>Deletar</button>
+                <button onClick={() => navigate(`/create-user/${idPessoa}`)}>
+                  Atualizar
+                </button>
               </div>
             </li>
           )
         )}
       </ul>
+      <ToastContainer />;
     </div>
   );
 };
