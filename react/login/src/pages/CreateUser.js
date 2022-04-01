@@ -31,21 +31,21 @@ export default function CreateUser() {
       position: toast.POSITION.TOP_CENTER,
     });
   };
-  const userId = async () => {
+  const getUserId = async () => {
     try {
       const { data } = await api.get(`pessoa/{idPessoa}?idPessoa=${idPerson}`);
       let formatDate = moment(data.dataNascimento).format("DD/MM/YYYY");
 
       setNome(data.nome);
       setEmail(data.email);
-      maskDate(formatDate);
-      maskCPF(data.cpf);
+      mascaraData(formatDate);
+      mascaraCpf(data.cpf);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const updateUser = async (e) => {
+  const attUser = async (e) => {
     e.preventDefault();
 
     let formatDate = dataNascimento;
@@ -62,23 +62,23 @@ export default function CreateUser() {
     };
     try {
       const { data } = await api.put(`/pessoa/${idPerson}`, newPerson);
-      mensagemSucesso("Atualizado com sucesso!");
       setTimeout(() => {
         navigate("/users");
-      }, 7000);
+      }, 500);
     } catch (error) {
+      alert("Falha ao atualizar o usuário!");
       console.log("error");
     }
   };
 
   useEffect(() => {
     if (idPerson) {
-      userId();
+      getUserId();
       setUpdate(true);
     }
   }, []);
 
-  const maskCPF = (value) => {
+  const mascaraCpf = (value) => {
     return setCpf(
       value
         .replace(/\D/g, "")
@@ -89,7 +89,7 @@ export default function CreateUser() {
     );
   };
 
-  const maskDate = (value) => {
+  const mascaraData = (value) => {
     return setDataNascimento(
       value
         .replace(/\D/g, "")
@@ -130,7 +130,7 @@ export default function CreateUser() {
       <h1>Faça o seu cadastro!</h1>
       <form
         className={styleCreateFormulario.formulario}
-        onSubmit={(e) => (update ? updateUser(e) : createNewUser(e))}
+        onSubmit={(e) => (update ? attUser(e) : createNewUser(e))}
       >
         <label htmlFor="nome">Nome: </label>
         <input
@@ -157,7 +157,7 @@ export default function CreateUser() {
           id="dataNascimento"
           name="dataNascimento"
           placeholder="Digite sua data de nascimento"
-          onChange={(e) => maskDate(e.target.value)}
+          onChange={(e) => mascaraData(e.target.value)}
         />
 
         <label htmlFor="cpf">Cpf</label>
@@ -166,7 +166,7 @@ export default function CreateUser() {
           name="cpf"
           placeholder="digite seu cpf"
           value={cpf}
-          onChange={(e) => maskCPF(e.target.value)}
+          onChange={(e) => mascaraCpf(e.target.value)}
         />
 
         {update ? (

@@ -11,6 +11,9 @@ header a:hover {
   cursor: pointer;
   background-color: #f1f1f1;
   border: 2px solid #ccc;
+  color: rgb(0, 0, 0, 0.5);
+  font-weight: bold;
+
   font-size: 16px;
 }
 .botaoSair:hover {
