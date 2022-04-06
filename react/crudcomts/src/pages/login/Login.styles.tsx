@@ -35,9 +35,16 @@ export const ContainerForm = styled(Form)`
 export const Input = styled(Field)`
   width: 316px;
   height: 42px;
+  margin-top: 6px;
   border-radius: 8px;
   border: 1px solid #f0f1f7;
   outline: none;
+  &::placeholder {
+    color: #9fa2b4;
+  }
+  &:focus {
+    border: 1px solid #9fa2b4;
+  }
 `;
 
 export const Botao = styled.button`
