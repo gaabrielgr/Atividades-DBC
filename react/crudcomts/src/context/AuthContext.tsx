@@ -7,18 +7,17 @@ export const AuthContext = createContext({});
 const AuthProvider: FC<any> = ({ children }) => {
   const navigatePage = useNavigate();
   const [key, setKey] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   useEffect(() => {
     const token = localStorage.getItem("key");
     if (token) {
       api.defaults.headers.common["authorization"] = token;
       setIsLogged(true);
-    }
-    if (!token) {
+    } else {
       navigatePage("/login");
-      setLoading(false);
     }
+    setLoading(false);
   }, []);
 
   const handleLogin = async (user: loginDTO) => {

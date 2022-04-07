@@ -1,5 +1,6 @@
 import Logo from "./Logo";
 import Menu from "./Menu";
+import { ContainerHeader, ButtonSair } from "../Header.styles";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const Header = () => {
@@ -9,11 +10,11 @@ const Header = () => {
   return (
     <>
       {isLogged && (
-        <header>
+        <ContainerHeader>
           <Logo />
           <Menu />
-          <div>{token && <button onClick={deslogar}>Sair</button>}</div>
-        </header>
+          <>{token && <ButtonSair onClick={deslogar}>Sair</ButtonSair>}</>
+        </ContainerHeader>
       )}
     </>
   );

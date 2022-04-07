@@ -1,7 +1,9 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import { AuthContext } from "../../context/AuthContext";
+import { AiFillEyeInvisible } from "react-icons/ai";
+import { AiFillEye } from "react-icons/ai";
 import {
   ContainerLogin,
   DivForm,
@@ -16,11 +18,13 @@ import {
   DivCadastrar,
   SubCadastrar,
   SignUp,
+  TrocarSenha,
 } from "./Login.styles";
 import { loginDTO } from "../../model/LoginDTO";
 import logoForm from "../../images/logo.png";
 const Login = () => {
   const { handleLogin } = useContext<any>(AuthContext);
+  const [pass, setPass] = useState(true);
   const navigate = useNavigate();
   useEffect(() => {
     const token = localStorage.getItem("key");
@@ -65,11 +69,14 @@ const Login = () => {
             <DivForm>
               <label htmlFor="senha">Senha</label>
               <Input
-                type="password"
+                type={pass ? "password" : "text"}
                 name="senha"
                 id="senha"
                 placeholder="Digite sua senha"
               />
+              <TrocarSenha onClick={() => setPass(!pass)}>
+                {pass ? <AiFillEyeInvisible /> : <AiFillEye />}
+              </TrocarSenha>
             </DivForm>
             <Botao type="submit">Login</Botao>
             <DivCadastrar>

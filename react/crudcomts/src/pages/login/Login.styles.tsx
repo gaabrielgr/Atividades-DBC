@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Field, Form } from "formik";
 export const ContainerLogin = styled.div`
   height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   background-color: #363740;
@@ -18,6 +19,7 @@ export const TitleLogin = styled.h1`
 export const DivForm = styled.div`
   display: grid;
   margin-bottom: 26px;
+  position: relative;
 `;
 
 export const ContainerForm = styled(Form)`
@@ -103,4 +105,12 @@ export const SignUp = styled.span`
   font-size: 14px;
   font-weight: bold;
   margin-left: 5px;
+`;
+
+export const TrocarSenha = styled.a`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  cursor: pointer;
+  color: #9fa2b4;
 `;
