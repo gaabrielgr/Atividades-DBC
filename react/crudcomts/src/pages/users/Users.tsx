@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import api from "../../api";
 import { UserContext } from "../../context/UserContext";
+import moment from "moment";
 import {
   Tabela,
   TrTabela,
@@ -12,6 +13,8 @@ import {
 
 function Users() {
   const { getUsers, person } = useContext<any>(UserContext);
+  const [cpf, setCpf] = useState("");
+
   useEffect(() => {
     const token = localStorage.getItem("key");
     if (token) {
@@ -20,6 +23,14 @@ function Users() {
     getUsers();
   }, []);
 
+  const mascaraCpf = (value: string) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d)/, "$1.$2")
+      .replace(/(\d{3})(\d{1,2})/, "$1-$2")
+      .replace(/(-\d{2})\d+?$/, "$1");
+  };
   return (
     <BackGroundTabela>
       <TitleUsers>Users</TitleUsers>
@@ -37,8 +48,10 @@ function Users() {
             <TrTabela key={user.idPessoa}>
               <TdTabela>{user.nome}</TdTabela>
               <TdTabela>{user.email}</TdTabela>
-              <TdTabela>{user.cpf}</TdTabela>
-              <TdTabela>{user.dataNascimento}</TdTabela>
+              <TdTabela>{mascaraCpf(user.cpf)}</TdTabela>
+              <TdTabela>
+                {moment(user.dataNascimento).format("DD/MM/YYYY")}
+              </TdTabela>
             </TrTabela>
           ))}
         </tbody>
