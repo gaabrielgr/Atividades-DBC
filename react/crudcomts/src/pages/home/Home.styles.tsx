@@ -29,7 +29,6 @@ export const CardTitle = styled.h1`
 
 export const ContainerCadastrados = styled.div`
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 400px;
@@ -40,4 +39,12 @@ export const ContainerCadastrados = styled.div`
 `;
 export const TotalCadastrados = styled.p`
   font-size: 30px;
+`;
+
+export const CardInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+export const CardIcon = styled.div`
+  font-size: 45px;
 `;

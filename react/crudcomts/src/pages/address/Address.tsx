@@ -24,6 +24,7 @@ import {
   ContainerAddress,
   AtualizarDeletar,
   MaskInput,
+  BotaoDeletar,
 } from "./Address.styles";
 import { IoSearchOutline } from "react-icons/io5";
 import { useContext, useEffect, useState } from "react";
@@ -72,15 +73,24 @@ function Address() {
       formikProps.resetForm();
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar criar o endereço!", {
+        timeout: 2000,
+      });
     }
   }
 
   const DeleteAddress = async (end: number) => {
     try {
       await api.delete(`/endereco/${end}`);
+      Notiflix.Notify.success("Endereço deletado com sucesso!", {
+        timeout: 1500,
+      });
       getListAddress();
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar deletar o endereço!", {
+        timeout: 2000,
+      });
     }
   };
   function handleAtt(user: number, formi: any) {
@@ -155,34 +165,34 @@ function Address() {
 
       logradouro: Yup.string()
         .required("O logradouro é obrigatório")
-        .min(2, "O CEP precisa ter 8 números")
-        .max(50, "O CEP precisar ter no máximo 8 números"),
+        .min(4, "O logradouro precisa ter no mínimo 4 letras")
+        .max(100, "Você excedeu o limite de caracteres"),
 
       complemento: Yup.string()
         .required("O complemento é obrigatório")
-        .min(2, "O CEP precisa ter 8 números")
-        .max(50, "O CEP precisar ter no máximo 8 números"),
+        .min(4, "O complemento precisa ter no mínimo 4 letras")
+        .max(100, "Você excedeu o limite de caracteres"),
 
       localidade: Yup.string()
         .required("A cidade é obrigatória")
-        .min(2, "O CEP precisa ter 8 números")
-        .max(50, "O CEP precisar ter no máximo 8 números"),
+        .min(2, "A cidade precisa ter no mínimo 2 letras")
+        .max(50, "Você excedeu o limite de caracteres"),
 
       uf: Yup.string()
         .required("O estado é obrigatório")
-        .min(2, "O CEP precisa ter 8 números")
-        .max(50, "O CEP precisar ter no máximo 8 números"),
+        .min(2, "O Estado precisa ter 2 letras")
+        .max(2, "O Estado precisa ter no máximo 2 letras"),
 
       numero: Yup.number()
         .required("O número é obrigatório")
         .integer("Só pode números")
         .typeError("Só pode números")
-        .positive("Só números positivo"),
+        .positive("Só pode números positivo"),
 
       pais: Yup.string()
         .required("O país é obrigatório")
-        .min(2, "O CEP precisa ter 8 números")
-        .max(50, "O CEP precisar ter no máximo 8 números"),
+        .min(2, "O País precisa ter no mínimo 2 letras")
+        .max(50, "Você excedeu o limite de caracteres"),
     }),
 
     onSubmit: async (
@@ -361,9 +371,9 @@ function Address() {
                     >
                       Atualizar
                     </Botao>
-                    <Botao onClick={() => DeleteAddress(end.idEndereco)}>
+                    <BotaoDeletar onClick={() => DeleteAddress(end.idEndereco)}>
                       Deletar
-                    </Botao>
+                    </BotaoDeletar>
                   </AtualizarDeletar>
                 </TdTabela>
               </TrTabela>

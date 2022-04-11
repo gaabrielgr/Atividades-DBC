@@ -6,6 +6,7 @@ export const ContainerHeader = styled.header`
   flex-direction: column;
   min-width: 340px;
   min-height: 100vh;
+  border-right: 1px solid #dfe0eb;
 `;
 
 export const LiMenu = styled.li`
@@ -54,6 +55,8 @@ export const ButtonSair = styled.button`
 `;
 
 export const DivFixed = styled.div`
+  border-right: 1px solid #dfe0eb;
+
   background-color: #363740;
   display: flex;
   flex-direction: column;

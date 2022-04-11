@@ -28,6 +28,7 @@ import {
   MaskInput,
   Error,
   Label,
+  BotaoDeletar,
 } from "./User.styles";
 function Users() {
   const [createUsers, setCreateUsers] = useState<CreatePessoaDTO>();
@@ -57,12 +58,15 @@ function Users() {
       };
       const { data } = await api.post("/pessoa", userFormat);
       Notiflix.Notify.success("Contato criado com sucesso!", {
-        timeout: 800,
+        timeout: 1500,
       });
       getUsers();
       formikProps.resetForm();
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar criar o usuário!", {
+        timeout: 2000,
+      });
     }
   }
 
@@ -77,6 +81,9 @@ function Users() {
             onClick: async () => {
               const { data } = await api.delete(`pessoa/${idPessoa}`);
               console.log(data);
+              Notiflix.Notify.success("Contato deletado com sucesso!", {
+                timeout: 1500,
+              });
               getUsers();
             },
           },
@@ -86,7 +93,12 @@ function Users() {
           },
         ],
       });
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar deletar o usuário!", {
+        timeout: 2000,
+      });
+    }
   };
   const attUsers = async (id: number, setFieldValue: any) => {
     try {
@@ -122,9 +134,15 @@ function Users() {
       const { data } = await api.put(`/pessoa/${idUser}`, updateUser);
       setEditButton(false);
       getUsers();
+      Notiflix.Notify.success("Contato atualizado com sucesso!", {
+        timeout: 1500,
+      });
       formikProps.resetForm();
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar atualizar o usuário!", {
+        timeout: 2000,
+      });
     }
   };
 
@@ -267,9 +285,9 @@ function Users() {
                     >
                       Atualizar
                     </Botao>
-                    <Botao onClick={() => DeleteUsers(user.idPessoa)}>
+                    <BotaoDeletar onClick={() => DeleteUsers(user.idPessoa)}>
                       Deletar
-                    </Botao>
+                    </BotaoDeletar>
                   </AtualizarDeletar>
                 </TdTabela>
               </TrTabela>

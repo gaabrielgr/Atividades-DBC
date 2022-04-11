@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Field, Form } from "formik";
 import InputMask from "react-input-mask";
 
 export const BackGroundTabela = styled.div`
@@ -12,7 +11,7 @@ export const BackGroundTabela = styled.div`
 `;
 
 export const Tabela = styled.table`
-  width: 95%;
+  width: 98%;
   text-align: center;
   border-spacing: 0px;
   background-color: #fff !important;
@@ -74,7 +73,7 @@ export const Input = styled.input`
   height: 42px;
   margin-top: 6px;
   border-radius: 8px;
-  border: 1px solid #f0f1f7;
+  border: 1.5px solid #cdcdce;
   color: #777777;
   font-size: 18px;
   outline: none;
@@ -106,6 +105,22 @@ export const Botao = styled.button`
   }
 `;
 
+export const BotaoDeletar = styled.button`
+  height: 42px;
+  width: 490px;
+  justify-self: center;
+  background-color: #a02140;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(170, 35, 35, 0.24);
+  color: #fff;
+  grid-column: 1 / 3;
+  cursor: pointer;
+  :hover {
+    background-color: #7a1931;
+  }
+`;
+
 export const ContainerUsers = styled.div`
   display: flex;
   margin: 0 auto;
@@ -123,9 +138,6 @@ export const AtualizarDeletar = styled.div`
     height: 30px;
     width: 120px;
   }
-  button:hover {
-    background-color: #273bbe;
-  }
 `;
 export const Error = styled.small`
   color: red;
@@ -136,7 +148,7 @@ export const MaskInput = styled(InputMask)`
   height: 42px;
   margin-top: 6px;
   border-radius: 8px;
-  border: 1px solid #f0f1f7;
+  border: 1.5px solid #cdcdce;
   color: #777777;
   font-size: 18px;
   outline: none;
