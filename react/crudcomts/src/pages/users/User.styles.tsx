@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Field, Form } from "formik";
+import InputMask from "react-input-mask";
 
 export const BackGroundTabela = styled.div`
   background-color: #e5e5e5;
@@ -43,4 +45,105 @@ export const TitleUsers = styled.h1`
   color: #808080;
 
   margin: 36px 0px 56px 40px;
+`;
+
+/* formulario */
+
+export const ContainerForm = styled.form`
+  height: 400px;
+  background-color: #e5e5e5;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  margin-top: 3%;
+  column-gap: 10px;
+  color: #9fa2b4;
+  border-radius: 8px;
+`;
+
+export const DivForm = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  height: 100px;
+`;
+
+export const Input = styled.input`
+  width: 490px;
+  height: 42px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #f0f1f7;
+  color: #777777;
+  font-size: 18px;
+  outline: none;
+  &::placeholder {
+    color: #9fa2b4;
+  }
+  &:focus {
+    border: 1px solid #9fa2b4;
+  }
+`;
+export const Label = styled.label`
+  color: #777777;
+  font-size: 18px;
+`;
+
+export const Botao = styled.button`
+  height: 42px;
+  width: 490px;
+  justify-self: center;
+  background-color: #3751ff;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
+  color: #fff;
+  grid-column: 1 / 3;
+  cursor: pointer;
+  :hover {
+    background-color: #273bbe;
+  }
+`;
+
+export const ContainerUsers = styled.div`
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  width: 100%;
+  background-color: #e5e5e5;
+`;
+
+export const AtualizarDeletar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  button {
+    height: 30px;
+    width: 120px;
+  }
+  button:hover {
+    background-color: #273bbe;
+  }
+`;
+export const Error = styled.small`
+  color: red;
+`;
+
+export const MaskInput = styled(InputMask)`
+  width: 490px;
+  height: 42px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #f0f1f7;
+  color: #777777;
+  font-size: 18px;
+  outline: none;
+  &::placeholder {
+    color: #9fa2b4;
+  }
+  &:focus {
+    border: 1px solid #9fa2b4;
+  }
 `;

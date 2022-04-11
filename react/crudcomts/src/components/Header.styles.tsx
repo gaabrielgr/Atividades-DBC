@@ -52,3 +52,11 @@ export const ButtonSair = styled.button`
     border: 1px solid rgb(159, 162, 180);
   }
 `;
+
+export const DivFixed = styled.div`
+  background-color: #363740;
+  display: flex;
+  flex-direction: column;
+  min-width: 340px;
+  position: fixed;
+`;

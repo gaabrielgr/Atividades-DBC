@@ -1,10 +1,10 @@
-import { FC, createContext, useState, useEffect } from "react";
+import { FC, createContext, useState, useEffect, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
 import { loginDTO } from "../model/LoginDTO";
 import api from "../api";
 export const AuthContext = createContext({});
 
-const AuthProvider: FC<any> = ({ children }) => {
+const AuthProvider: FC<ReactNode> = ({ children }) => {
   const navigatePage = useNavigate();
   const [key, setKey] = useState("");
   const [loading, setLoading] = useState(false);
@@ -39,6 +39,7 @@ const AuthProvider: FC<any> = ({ children }) => {
     navigatePage("/login");
   };
 
+  console.log(loading);
   if (loading) {
     return <h1>Loading</h1>;
   }

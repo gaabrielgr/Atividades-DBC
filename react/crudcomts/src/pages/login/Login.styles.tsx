@@ -35,6 +35,8 @@ export const ContainerForm = styled(Form)`
 `;
 
 export const Input = styled(Field)`
+  font-size: 18px;
+  color: #8d8d8d;
   width: 316px;
   height: 42px;
   margin-top: 6px;
