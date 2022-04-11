@@ -1,5 +1,7 @@
 import { FC, createContext, useState, useEffect, ReactNode } from "react";
 import { useNavigate } from "react-router-dom";
+import Notiflix from "notiflix";
+
 import { loginDTO } from "../model/LoginDTO";
 import api from "../api";
 export const AuthContext = createContext({});
@@ -21,6 +23,8 @@ const AuthProvider: FC<ReactNode> = ({ children }) => {
   }, []);
 
   const handleLogin = async (user: loginDTO) => {
+    console.log(user);
+
     try {
       const { data } = await api.post("/auth", user);
       setKey(data);
@@ -30,6 +34,9 @@ const AuthProvider: FC<ReactNode> = ({ children }) => {
       navigatePage("/");
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Usuário e/ou senha inválidos!", {
+        timeout: 2000,
+      });
     }
   };
 

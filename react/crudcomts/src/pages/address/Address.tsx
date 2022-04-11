@@ -1,5 +1,7 @@
 import { FormikHelpers, useFormik } from "formik";
 import axios from "axios";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import { AddressDTO } from "../../model/AddressDTO";
 import api from "../../api";
 import Loading from "../../components/loading/Loading";
@@ -81,11 +83,26 @@ function Address() {
 
   const DeleteAddress = async (end: number) => {
     try {
-      await api.delete(`/endereco/${end}`);
-      Notiflix.Notify.success("Endereço deletado com sucesso!", {
-        timeout: 1500,
+      confirmAlert({
+        title: "Confirmar?",
+        message: "Realmente deseja excluir o endereço?",
+        buttons: [
+          {
+            label: "Yes",
+            onClick: async () => {
+              await api.delete(`/endereco/${end}`);
+              Notiflix.Notify.success("Endereço deletado com sucesso!", {
+                timeout: 1500,
+              });
+              getListAddress();
+            },
+          },
+          {
+            label: "Não",
+            onClick: () => console.log("Não"),
+          },
+        ],
       });
-      getListAddress();
     } catch (error) {
       console.log(error);
       Notiflix.Notify.failure("Erro ao tentar deletar o endereço!", {
@@ -135,9 +152,15 @@ function Address() {
       const { data } = await api.put(`/endereco/${idAddress}`, updateAddress);
       setEditButton(false);
       getListAddress();
+      Notiflix.Notify.success("Endereço atualizado com sucesso!", {
+        timeout: 1500,
+      });
       formikProps.resetForm();
     } catch (error) {
       console.log(error);
+      Notiflix.Notify.failure("Erro ao tentar atualizar o endereço!", {
+        timeout: 2000,
+      });
     }
   };
   useEffect(() => {

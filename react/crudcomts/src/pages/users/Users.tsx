@@ -3,12 +3,12 @@ import moment from "moment";
 import { FormikHelpers, useFormik } from "formik";
 import * as Yup from "yup";
 import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 import Notiflix from "notiflix";
 import api from "../../api";
 import { UserContext } from "../../context/UserContext";
 import { CreatePessoaDTO } from "../../model/CreatePessoaDTO";
 import { cpf } from "../../masks/Masks";
-import "react-confirm-alert/src/react-confirm-alert.css";
 import Loading from "../../components/loading/Loading";
 import ErrorMsg from "../../components/error/ErrorMsg";
 

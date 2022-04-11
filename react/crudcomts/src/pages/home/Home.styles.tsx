@@ -36,6 +36,9 @@ export const ContainerCadastrados = styled.div`
   background-color: #fff;
   border-radius: 8px;
   border: 1px solid #000;
+  :hover {
+    background-color: #f7f7f7;
+  }
 `;
 export const TotalCadastrados = styled.p`
   font-size: 30px;

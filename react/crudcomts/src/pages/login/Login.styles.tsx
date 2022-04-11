@@ -60,6 +60,9 @@ export const Botao = styled.button`
   box-shadow: 0px 4px 12px rgba(55, 81, 255, 0.24);
   color: #fff;
   cursor: pointer;
+  :hover {
+    background-color: #273bbe;
+  }
 `;
 
 export const DivLogo = styled.div`
