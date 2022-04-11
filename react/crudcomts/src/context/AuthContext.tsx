@@ -23,8 +23,6 @@ const AuthProvider: FC<ReactNode> = ({ children }) => {
   }, []);
 
   const handleLogin = async (user: loginDTO) => {
-    console.log(user);
-
     try {
       const { data } = await api.post("/auth", user);
       setKey(data);
@@ -45,8 +43,6 @@ const AuthProvider: FC<ReactNode> = ({ children }) => {
     setIsLogged(false);
     navigatePage("/login");
   };
-
-  console.log(loading);
   if (loading) {
     return <h1>Loading</h1>;
   }

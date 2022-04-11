@@ -2,12 +2,14 @@ import { FormikHelpers, useFormik } from "formik";
 import axios from "axios";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Notiflix from "notiflix";
+import * as Yup from "yup";
+import { IoSearchOutline } from "react-icons/io5";
+import { useContext, useEffect, useState } from "react";
 import { AddressDTO } from "../../model/AddressDTO";
 import api from "../../api";
 import Loading from "../../components/loading/Loading";
 import ErrorMsg from "../../components/error/ErrorMsg";
-import * as Yup from "yup";
-import Notiflix from "notiflix";
 import {
   ContainerForm,
   Error,
@@ -27,10 +29,11 @@ import {
   AtualizarDeletar,
   MaskInput,
   BotaoDeletar,
+  ThComplemento,
+  TdComplemento,
 } from "./Address.styles";
-import { IoSearchOutline } from "react-icons/io5";
-import { useContext, useEffect, useState } from "react";
 import { AddressContext } from "../../context/AddressContext";
+import { cep } from "../../masks/Masks";
 function Address() {
   const [idAddress, setIdAddress] = useState(0);
   const [editButton, setEditButton] = useState(false);
@@ -367,7 +370,7 @@ function Address() {
               <th>Estado</th>
               <th>Cidade</th>
               <th>Rua</th>
-              <th>Complemento</th>
+              <ThComplemento>Complemento</ThComplemento>
               <th>Numero</th>
               <th>País</th>
               <th>Tipo de Endereço</th>
@@ -377,11 +380,11 @@ function Address() {
           <tbody>
             {address.map((end: string | any) => (
               <TrTabela key={end.idEndereco}>
-                <TdTabela>{end.cep}</TdTabela>
+                <TdTabela>{cep(end.cep)}</TdTabela>
                 <TdTabela>{end.estado}</TdTabela>
                 <TdTabela>{end.cidade}</TdTabela>
                 <TdTabela>{end.logradouro}</TdTabela>
-                <TdTabela>{end.complemento}</TdTabela>
+                <TdComplemento>{end.complemento}</TdComplemento>
                 <TdTabela>{end.numero}</TdTabela>
                 <TdTabela>{end.pais}</TdTabela>
                 <TdTabela>{end.tipo}</TdTabela>

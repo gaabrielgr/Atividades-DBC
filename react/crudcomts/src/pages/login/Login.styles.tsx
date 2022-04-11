@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Field, Form } from "formik";
 export const ContainerLogin = styled.div`
   height: 100vh;
   width: 100vw;
@@ -20,11 +19,12 @@ export const DivForm = styled.div`
   display: grid;
   margin-bottom: 26px;
   position: relative;
+  height: 67.7px;
 `;
 
-export const ContainerForm = styled(Form)`
+export const ContainerForm = styled.form`
   width: 380px;
-  height: 582px;
+  height: 610px;
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -33,8 +33,10 @@ export const ContainerForm = styled(Form)`
   color: #9fa2b4;
   border-radius: 8px;
 `;
-
-export const Input = styled(Field)`
+export const Error = styled.small`
+  color: red;
+`;
+export const Input = styled.input`
   font-size: 18px;
   color: #8d8d8d;
   width: 316px;

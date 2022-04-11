@@ -8,7 +8,7 @@ import Notiflix from "notiflix";
 import api from "../../api";
 import { UserContext } from "../../context/UserContext";
 import { CreatePessoaDTO } from "../../model/CreatePessoaDTO";
-import { cpf } from "../../masks/Masks";
+import { cpf, formatDate } from "../../masks/Masks";
 import Loading from "../../components/loading/Loading";
 import ErrorMsg from "../../components/error/ErrorMsg";
 
@@ -57,7 +57,7 @@ function Users() {
         email: values.email,
       };
       const { data } = await api.post("/pessoa", userFormat);
-      Notiflix.Notify.success("Contato criado com sucesso!", {
+      Notiflix.Notify.success("Usuário criado com sucesso!", {
         timeout: 1500,
       });
       getUsers();
@@ -227,6 +227,10 @@ function Users() {
             value={formikProps.values.dataNascimento}
             onChange={formikProps.handleChange}
           />
+          {formikProps.errors.dataNascimento &&
+          formikProps.touched.dataNascimento ? (
+            <Error>{formikProps.errors.dataNascimento}</Error>
+          ) : null}
         </DivForm>
         <DivForm>
           <Label htmlFor="bairro">Email</Label>
@@ -251,6 +255,9 @@ function Users() {
             value={formikProps.values.cpf}
             onChange={formikProps.handleChange}
           />
+          {formikProps.errors.cpf && formikProps.touched.cpf ? (
+            <Error>{formikProps.errors.cpf}</Error>
+          ) : null}
         </DivForm>
 
         <Botao type="submit">{editButton ? "Atualizar" : "Cadastrar"}</Botao>
@@ -275,7 +282,7 @@ function Users() {
                 <TdTabela>{user.email}</TdTabela>
                 <TdTabela>{cpf(user.cpf)}</TdTabela>
 
-                <TdTabela>{user.dataNascimento}</TdTabela>
+                <TdTabela>{formatDate(user.dataNascimento)}</TdTabela>
                 <TdTabela>
                   <AtualizarDeletar>
                     <Botao

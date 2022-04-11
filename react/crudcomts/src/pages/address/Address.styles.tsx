@@ -136,9 +136,21 @@ export const Tabela = styled.table`
   border-spacing: 0px;
   background-color: #fff !important;
   border-radius: 8px;
+
   border: 1.5px solid #dfe0eb;
 `;
-
+export const ThComplemento = styled.th`
+  width: 200px;
+`;
+export const TdComplemento = styled.td`
+  width: 200px;
+  max-width: 20ch;
+  border-bottom: 1.5px solid #dfe0eb;
+  color: #777777;
+  font-size: 18px;
+  height: 90px;
+  width: 300px;
+`;
 export const TrTabela = styled.tr`
   &:nth-child(even) {
     background-color: #eeeeee;
@@ -151,6 +163,7 @@ export const TdTabela = styled.td`
   font-size: 18px;
   height: 90px;
   width: 300px;
+  max-width: 20ch;
 `;
 
 export const TheadTabela = styled.thead`
