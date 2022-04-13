@@ -1,5 +1,5 @@
-import api from "../api";
 import { FC, createContext, useState, ReactNode, useEffect } from "react";
+import api from "../api";
 import { PessoaDTO } from "../model/PessoaDTO";
 export const UserContext = createContext({});
 

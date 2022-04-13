@@ -1,7 +1,11 @@
-import React from "react";
-
+import logoNot from "../../components/error/notfound.gif";
+import { ContainerError } from "./NotFound.styles";
 const NotFound = () => {
-  return <div>NotFound</div>;
+  return (
+    <ContainerError>
+      <img src={logoNot} alt="" />
+    </ContainerError>
+  );
 };
 
 export default NotFound;

@@ -11,7 +11,6 @@ import { CreatePessoaDTO } from "../../model/CreatePessoaDTO";
 import { cpf, formatDate } from "../../masks/Masks";
 import Loading from "../../components/loading/Loading";
 import ErrorMsg from "../../components/error/ErrorMsg";
-
 import {
   Tabela,
   TrTabela,
